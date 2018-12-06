@@ -1,0 +1,26 @@
+{
+  "name": "ec-dashboard-cucumber-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bloxico/ec-dashboard-cucumber-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bloxico/ec-dashboard-cucumber-tests/issues"
+  },
+  "homepage": "https://github.com/Bloxico/ec-dashboard-cucumber-tests#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chromedriver": "^2.44.1",
+    "cucumber": "^5.0.3",
+    "geckodriver": "^1.14.1",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
