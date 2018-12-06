@@ -17,10 +17,16 @@
   },
   "homepage": "https://github.com/Bloxico/ec-dashboard-cucumber-tests#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "assert": "^1.4.1",
     "chromedriver": "^2.44.1",
     "cucumber": "^5.0.3",
     "geckodriver": "^1.14.1",
     "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
   }
 }
