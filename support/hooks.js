@@ -1,27 +1,42 @@
-import { BeforeAll, Before, After, AfterAll } from 'cucumber'
-import  Logger from 'logplease'
+const { BeforeAll, Before, After } = require('cucumber')
+const Logger = require('logplease')
+const TestData = require('../util/test_data')
+const LoginPage = require('./pages/login_page')
 
+let testData
 
-client = {}
 const logger = Logger.create(
-  'test',
-  { filename: 'smarttest.log', appendFile: true }
+  'gn_org_test',
+  { filename: 'gnorgtest.log', appendFile: true }
 )
 
 BeforeAll(async function () {
-  
+  logger.info('Initialize test run...')
 })
 
-Before(async function () {
-  client.mainPage = new MainPage(webdriver)
-  client.homePage = new HomePage(webdriver)
-  this.client = client
+Before(async function (scenario) {
+  this.logger = logger
+  await this.browser.init()
+
+  // init page objects
+  this.page = {}
+  this.loginPage = new LoginPage(this)
+
+  if (!testData) {
+    // init test data
+    logger.info(`parameters: ${JSON.stringify(this.parameters)}`)
+    TestData.load(this.parameters.environment)
+    testData = TestData.data
+  } else {
+    logger.debug('Test data already initialized!')
+  }
+
+  this.testData = testData
+
+  this.logger.info(`Start test: ${scenario.pickle.name}`)
 })
 
-After(async function () {
-  
-})
-
-AfterAll(async function () {
-  
+After(async function (scenario) {
+  this.logger.info(`Scenario '${scenario.pickle.name}' ${scenario.result.status}!`)
+  await this.browser.end()
 })
