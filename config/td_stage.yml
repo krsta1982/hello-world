@@ -8,8 +8,8 @@
 
 users:
   qa_user_1:
-    email: dimitrije.dragasevic@gmail.com
-    password: dimitrije1994
+    email: dimitrije.dragasevic@bloxico.com
+    password: QAtest123!
 
   qa_user_2:
     email: 

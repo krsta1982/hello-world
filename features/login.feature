@@ -12,5 +12,5 @@ I want to open and log in the application
 
   Scenario: Log in with the test credentials
     When I enter the username and password
-    #Then I should be able to log in
+    Then I should be able to log in
     

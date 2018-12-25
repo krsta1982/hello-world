@@ -8,8 +8,8 @@ class Page {
   }
 
   async open (relativeUrl) {
-    //TODO: find out why it wont start maximized
-    //await this.browser.windowHandleMaximize()
+    // TODO: find out why it wont start maximized
+    // await this.browser.windowHandleMaximize()
     await this.browser.url(`${TestData.getBaseUrl()}/${relativeUrl}`)
   }
 }
