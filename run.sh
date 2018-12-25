@@ -5,10 +5,22 @@
 # $2 browser (chrome, firefox) (default: chrome)
 # $3 and after are standard Cucumberjs parameters
 #
-# Usage examples:
+# how to run : 
+# open two terminals and open the root of the project
+# in the first run these commands :
+# npm install  
+# ./node_modules/.bin/selenium-standalone install 
+# ./node_modules/.bin/selenium-standalone start
+#
+#
+# in the other terminal run tests like these examples:
 # $ ./run.sh stage firefox
 # $ ./run.sh prod chrome
 # $ ./run.sh prod chrome features/log_in.feature
+# 
+#
+
+
 environment=$1
 environment=${environment:=stage}
 browser=$2
