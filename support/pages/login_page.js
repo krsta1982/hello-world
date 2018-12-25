@@ -14,7 +14,7 @@ class LoginPage extends Page {
   get loginButtSel () { return '[type="submit"]' }
   get totalTitleSel () { return '[class="enrg-dashboard__title"]' }
 
-  // elements
+  // Elements
   get signInButton () { return this.browser.element(this.signInButtonTWO) }
   get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
   get passwordField () { return this.browser.element(this.passwordSel) }

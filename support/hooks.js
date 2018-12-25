@@ -6,8 +6,8 @@ const LoginPage = require('./pages/login_page')
 let testData
 
 const logger = Logger.create(
-  'gn_org_test',
-  { filename: 'gnorgtest.log', appendFile: true }
+  'energyDashboard',
+  { filename: 'energyDashboard.log', appendFile: true }
 )
 
 BeforeAll(async function () {
