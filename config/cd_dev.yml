@@ -1,0 +1,9 @@
+###
+#
+# cd_dev.yml
+#
+# Config data for the DEV environment
+#
+###
+
+url: 'http://dev.enrg.bloxico.com/auth?userID=d2ucrolecep'

@@ -1,0 +1,9 @@
+###
+#
+# cd_stage.yml
+#
+# Config data for the STAGE environment
+#
+###
+
+url: 'https://stage.enrg.bloxico.com/auth?userID=d2ucrolecep'

@@ -1,26 +1,24 @@
 {
-  "name": "ec-dashboard-cucumber-tests",
+  "name": "create_acc_dashboard_js",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bloxico/ec-dashboard-cucumber-tests.git"
+    "test": "./node_modules/.bin/cucumber-js",
+    "postinstall": "./node_modules/.bin/selenium-standalone install",
+    "selenium": "./node_modules/.bin/selenium-standalone start"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Bloxico/ec-dashboard-cucumber-tests/issues"
-  },
-  "homepage": "https://github.com/Bloxico/ec-dashboard-cucumber-tests#readme",
   "devDependencies": {
-    "assert": "^1.4.1",
-    "chromedriver": "^2.44.1",
-    "cucumber": "^5.0.3",
-    "geckodriver": "^1.14.1",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+    "cucumber": "^3.2.1",
+    "js-yaml": "^3.12.0",
+    "lodash": "^4.17.4",
+    "logplease": "^1.2.15",
+    "selenium-standalone": "^6.15.1",
+    "webdriverio": "^4.13.2"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.10"
   }
 }

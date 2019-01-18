@@ -1,0 +1,9 @@
+###
+#
+# cd_prod.yml
+#
+# Config data for the PROD environment
+#
+###
+
+url: 'https://dashboard.energycoin.eu/auth'
