@@ -16,7 +16,7 @@ class CreateAccPage extends Page {
     get cityfielSel () {return '[name="city"]'}
     get nicknamefielSel () {return '[name="name"]'}
     get continueButtSel () {return '[type="submit"]'}
-    get totalTitleSel () {return '[class="enrg-header__title"]'}
+    get totalTitleSel () {return '[class="enrg-verify__title"]'}
 
 // Elements
     get createAccountButton () {return this.browser.element(this.createAccountButtonONE)}
