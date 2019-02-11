@@ -1,4 +1,3 @@
-
 const { setWorldConstructor } = require('cucumber')
 var webdriver = require('webdriverio')
 

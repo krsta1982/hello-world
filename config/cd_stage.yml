@@ -2,8 +2,8 @@
 #
 # cd_stage.yml
 #
-# Config data for the STAGE environment
+# Config data for the Staging environment
 #
 ###
 
-url: 'https://stage.enrg.bloxico.com/auth?userId=d2ucrolecep'
+url: 'http://dev.enrg.bloxico.com/auth'
