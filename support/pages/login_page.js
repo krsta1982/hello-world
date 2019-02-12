@@ -29,8 +29,8 @@ class LoginPage extends Page {
 
   async login () {
     await this.browser.waitForVisible(this.signInPageTxt, config.waitTime.medium)
-    await this.emailTextFiled.setValue(TestData.getUser('qa_user_1').email)
-    await this.passwordField.setValue(TestData.getUser('qa_user_1').password)
+    await this.emailTextFiled.setValue(TestData.getUser('qa_user_2').email)
+    await this.passwordField.setValue(TestData.getUser('qa_user_2').password)
     await this.logInButton.click()
   }
 
