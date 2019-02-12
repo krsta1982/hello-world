@@ -7,7 +7,7 @@
 ###
 
 users:
-  user_1:
+  qa_user_1:
     email: test1@cliptik.net
     password: Isto123!
     reapetPassword: Isto123!
@@ -15,7 +15,6 @@ users:
     city: Belgrade
     nickname: Tests
 
-  user_2:
-    email: 
-    password: 
-
+  qa_user_2:
+    email: cijit@newairmail.com
+    password: Isto123!

@@ -11,7 +11,7 @@ const createAccPage = require('../support/pages/createAcc_page')
    
 
     
-   Then('I should be able to create account', {timeout: 20000}, async function () {
+   Then('I should be able to create account', {timeout: 30000}, async function () {
            // Write code here that turns the phrase above into concrete actions
            await this.createAccPage.checkIfCreate()
          });

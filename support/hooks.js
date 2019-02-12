@@ -2,6 +2,7 @@ const { BeforeAll, Before, After } = require('cucumber')
 const Logger = require('logplease')
 const TestData = require('../util/test_data')
 const LoginPage = require('./pages/login_page')
+const CreateAccPage = require('./pages/createAcc_page')
 
 let testData
 
@@ -21,6 +22,7 @@ Before(async function (scenario) {
   // init page objects
   this.page = {}
   this.loginPage = new LoginPage(this)
+  this.createAccPage = new CreateAccPage(this)
 
   if (!testData) {
     // init test data
