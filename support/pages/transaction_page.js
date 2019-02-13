@@ -13,7 +13,7 @@ class TransactionPage extends Page {
     get passwordSel () { return '[name="password"]' }
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
-    get hamburgerBtnSell () { return '[title="Menu"]' }
+    get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
     get transactionLinkSel () { return '[class="enrg-navigation__item"]' }
 
     // Elements
@@ -45,10 +45,15 @@ class TransactionPage extends Page {
         assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
     }
 
-    async clickOnhamburger () {
-        await this.browser.waitForVisible(this.totalTitelSel, config.waitTime.long)
-        await this.browser.waitForText(this.totalTitelSel, config.waitTime.long)
-        await this.browser.hamburgerButton.click()
+    async clickOnamburger () {
+        // await this.browser.waitForVisible(this.totalTitelSel, config.waitTime.long)
+        // await this.browser.waitForText(this.totalTitelSel, config.waitTime.long)
+        await this.hamburgerButton.click()
+    }
+
+    async findTransaction () {
+        await this.browser.waitForVisible(this.transactionLink, config.waitTime.medium)
+        await this.browser.waitForText(this.transactionLink, config.waitTime.medium)
     }
 }
 
