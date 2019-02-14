@@ -14,10 +14,11 @@ const transactionPage = require('../support/pages/transaction_page')
 })
        
  When('I click Transaction link', { timeout: 35000 }, async function () {
-  // await this.transactionPage.clickOnamburger()
+  await this.transactionPage.findTransaction()
+  await this.transactionPage.clickTransaction()
 
 })
        
- Then('I should see transaction page', function () {
-
+ Then('I should see transaction page', {timeout: 40000}, async function () {
+  // await this.transactionPage.checkTransPage()
 })

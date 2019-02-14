@@ -19,7 +19,8 @@ class TransactionPage extends Page {
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
     get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
-    get transactionLinkSel () { return '[class="enrg-navigation__item"]' }
+    get transactionLinkSel () { return '[id="nav_2"]' }
+    get transTitlePage () { return '[class="enrg-header__title"]' }
 
     // Elements
     get signInButton () { return this.browser.element(this.signInButtonTWO) }
@@ -51,16 +52,27 @@ class TransactionPage extends Page {
     }
 
     async clickOnhamburger () {
-        // await this.browser.waitForVisible(this.totalTitelSel, config.waitTime.long)
-        // await this.browser.waitForText(this.totalTitelSel, config.waitTime.long)
         await this.hamburgerButton.click()
-        sleep(5)
+        sleep(2)
     }
 
     async findTransaction () {
-        await this.browser.waitForVisible(this.transactionLink, config.waitTime.medium)
-        await this.browser.waitForText(this.transactionLink, config.waitTime.medium)
+        await this.browser.waitForVisible(this.transactionLinkSel, config.waitTime.medium)
+        await this.browser.waitForText(this.transactionLinkSel, config.waitTime.medium)
+        // assert.strictEqual(transTitle[0], 'Total accumul', `the string ${transTitle[0]} does not match "Total accumul" `)
     }
+
+    async clickTransaction () {
+        await this.transactionLink.click()
+        sleep(2)
+    }
+
+    // async checkTransPage () {
+    //     await this.browser.waitForVisible(this.transTitlePage, config.waitTime.medium)
+    //     await this.browser.waitForText(this.transTitlePage, config.waitTime.medium)
+    //     let transTitle = await this.browser.getText(this.transactionLinkSel)
+    //     assert.strictEqual(transTitle[0], 'Total accumul', `the string ${transTitle[0]} does not match "Total accumul" `)
+    // }
 }
 
 module.exports = TransactionPage
