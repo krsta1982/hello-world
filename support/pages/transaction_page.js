@@ -4,6 +4,11 @@ const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
+function sleep(delay) {
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay*1000);
+}
+
 class TransactionPage extends Page {
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
@@ -45,10 +50,11 @@ class TransactionPage extends Page {
         assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
     }
 
-    async clickOnamburger () {
+    async clickOnhamburger () {
         // await this.browser.waitForVisible(this.totalTitelSel, config.waitTime.long)
         // await this.browser.waitForText(this.totalTitelSel, config.waitTime.long)
         await this.hamburgerButton.click()
+        sleep(5)
     }
 
     async findTransaction () {
