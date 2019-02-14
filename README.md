@@ -29,3 +29,8 @@ How to Run:
 1. `./run.sh dev chrome`
 2. `./run.sh stage chrome` 
 3. `./run.sh prod firefox`
+
+
+Hint:
+
+ - before starting tests, you must go to td yaml file and change email for qa_user_1, because when create new account must be with new email adress

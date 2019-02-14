@@ -1,4 +1,4 @@
-# Convenience script for running GPlay Publisher Account tests.
+# Convenience bash script for running Cucumber tests.
 #
 # Parameters:
 # $3 environment (stage, prod) (default: stage)
@@ -12,14 +12,11 @@
 # ./node_modules/.bin/selenium-standalone install 
 # ./node_modules/.bin/selenium-standalone start
 #
-#
-# in the other terminal run tests like these examples:
+# in the second terminal run tests like these examples:
 # $ ./run.sh stage firefox
 # $ ./run.sh prod chrome
 # $ ./run.sh prod chrome features/log_in.feature
 # 
-#
-
 
 environment=$1
 environment=${environment:=stage}
