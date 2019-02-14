@@ -1,6 +1,6 @@
 # EC Dashboard cucumber tests
 
-Convenience script for running GPlay Publisher Account tests.
+Convenience bash script for running Cucumber tests.
 
 
 Parameters:
@@ -24,7 +24,7 @@ How to Run:
 3. `./node_modules/.bin/selenium-standalone start`
 
 
-->  In the other terminal run tests like these examples:
+->  In the second terminal run tests like these examples:
 
 1. `./run.sh dev chrome`
 2. `./run.sh stage chrome` 
