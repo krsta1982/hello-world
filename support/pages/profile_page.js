@@ -53,7 +53,7 @@ class ProfilePage extends Page {
 
     async clickOnhamburger () {
         await this.hamburgerButton.click()
-        sleep(2)
+        sleep(1)
     }
 
     async findProfile () {
@@ -63,7 +63,7 @@ class ProfilePage extends Page {
 
     async clickProfile () {
         await this.profileLink.click()
-        sleep(2)
+        sleep(1)
     }
 
     async checkProfilePage () {
