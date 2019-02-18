@@ -10,13 +10,15 @@ const transactionPage = require('../support/pages/transaction_page')
        
  When('I click Menu button', { timeout: 30000}, async function () {
   await this.transactionPage.checkIfLoged()
-  // await this.transactionPage.clickOnhamburger()
+  await this.transactionPage.clickOnhamburger()
 })
        
- When('I click Transaction link', function () {
+ When('I click Transaction link', { timeout: 35000 }, async function () {
+  await this.transactionPage.findTransaction()
+  await this.transactionPage.clickTransaction()
 
 })
        
- Then('I should see transaction page', function () {
-
+ Then('I should see transaction page', {timeout: 40000}, async function () {
+  // await this.transactionPage.checkTransPage()
 })

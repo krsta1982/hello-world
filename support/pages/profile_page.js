@@ -9,7 +9,7 @@ function sleep(delay) {
     while (new Date().getTime() < start + delay*1000);
 }
 
-class TransactionPage extends Page {
+class ProfilePage extends Page {
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }
@@ -19,8 +19,8 @@ class TransactionPage extends Page {
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
     get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
-    get transactionLinkSel () { return '[id="nav_2"]' }
-    get transTitlePage () { return '[class="enrg-header__title"]' }
+    get profileLinkSel () { return '[id="nav_3"]' }
+    get profileTitelPage () { return '[class="enrg-edit-profile"]' }
 
     // Elements
     get signInButton () { return this.browser.element(this.signInButtonTWO) }
@@ -28,7 +28,7 @@ class TransactionPage extends Page {
     get passwordField () { return this.browser.element(this.passwordSel) }
     get logInButton () { return this.browser.element(this.loginButtSel) }
     get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
-    get transactionLink () { return this.browser.element(this.transactionLinkSel) }
+    get profileLink () { return this.browser.element(this.profileLinkSel) }
 
     // Methods
     async navigateTologIn () {
@@ -56,23 +56,20 @@ class TransactionPage extends Page {
         sleep(2)
     }
 
-    async findTransaction () {
-        await this.browser.waitForVisible(this.transactionLinkSel, config.waitTime.medium)
-        await this.browser.waitForText(this.transactionLinkSel, config.waitTime.medium)
-        // assert.strictEqual(transTitle[0], 'Total accumul', `the string ${transTitle[0]} does not match "Total accumul" `)
+    async findProfile () {
+        await this.browser.waitForVisible(this.profileLinkSel, config.waitTime.medium)
+        await this.browser.waitForText(this.profileLinkSel, config.waitTime.medium)
     }
 
-    async clickTransaction () {
-        await this.transactionLink.click()
+    async clickProfile () {
+        await this.profileLink.click()
         sleep(2)
     }
 
-    // async checkTransPage () {
-    //     await this.browser.waitForVisible(this.transTitlePage, config.waitTime.medium)
-    //     await this.browser.waitForText(this.transTitlePage, config.waitTime.medium)
-    //     let transTitle = await this.browser.getText(this.transactionLinkSel)
-    //     assert.strictEqual(transTitle[0], 'Total accumul', `the string ${transTitle[0]} does not match "Total accumul" `)
-    // }
+    async checkProfilePage () {
+        await this.browser.waitForVisible(this.profileTitelPage, config.waitTime.medium)
+        await this.browser.waitForText(this.profileTitelPage, config.waitTime.medium)
+    }
 }
 
-module.exports = TransactionPage
+module.exports = ProfilePage
