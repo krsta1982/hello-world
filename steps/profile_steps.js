@@ -12,11 +12,11 @@ When('I click Hamburger button', { timeout: 30000}, async function () {
     await this.profilePage.clickOnhamburger()
 })
 
-When('I click Profile link', { timeout: 40000}, async function () {
+When('I click Profile link', { timeout: 35000}, async function () {
     await this.profilePage.findProfile()
     await this.profilePage.clickProfile()
 })
 
 Then('I should see profile page', { timeout: 38000}, async function () {
-
+    await this.profilePage.checkProfilePage()
 })

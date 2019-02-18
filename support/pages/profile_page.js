@@ -66,9 +66,10 @@ class ProfilePage extends Page {
         sleep(2)
     }
 
-    // async checkProfilePage () {
-    //     await this.browser.waitForVisible()
-    // }
+    async checkProfilePage () {
+        await this.browser.waitForVisible(this.profileTitelPage, config.waitTime.medium)
+        await this.browser.waitForText(this.profileTitelPage, config.waitTime.medium)
+    }
 }
 
 module.exports = ProfilePage
