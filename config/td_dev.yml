@@ -8,7 +8,7 @@
 
 users:
   qa_user_1:
-    email: qatesting9@cliptik.net
+    email: qatesting19@cliptik.net
     password: Isto123!
     reapetPassword: Isto123!
     country: Serbia
@@ -16,5 +16,5 @@ users:
     nickname: Tests
 
   qa_user_2:
-    email: o12738146@nwytg.net
+    email: xogemov@mail-share.com
     password: Isto123!

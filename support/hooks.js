@@ -5,6 +5,7 @@ const LoginPage = require('./pages/login_page')
 const CreateAccPage = require('./pages/createAcc_page')
 const TransactionPage = require('./pages/transaction_page')
 const ProfilePage = require('./pages/profile_page')
+const HelpPage = require('./pages/help_page')
 
 let testData
 
@@ -27,6 +28,7 @@ Before(async function (scenario) {
   this.createAccPage = new CreateAccPage(this)
   this.transactionPage = new TransactionPage(this)
   this.profilePage = new ProfilePage(this)
+  this.helpPage = new HelpPage(this)
 
   if (!testData) {
     // init test data
