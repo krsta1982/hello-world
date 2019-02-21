@@ -6,6 +6,7 @@ const CreateAccPage = require('./pages/createAcc_page')
 const TransactionPage = require('./pages/transaction_page')
 const ProfilePage = require('./pages/profile_page')
 const HelpPage = require('./pages/help_page')
+const SignOut = require('./pages/signOut')
 
 let testData
 
@@ -29,6 +30,7 @@ Before(async function (scenario) {
   this.transactionPage = new TransactionPage(this)
   this.profilePage = new ProfilePage(this)
   this.helpPage = new HelpPage(this)
+  this.signOut = new SignOut(this)
 
   if (!testData) {
     // init test data
