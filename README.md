@@ -25,7 +25,7 @@ Hint:
  - before starting tests, you must go to td yaml file and change email for qa_user_1, because when create new account must be with new email adress
 
 For debugging edit the launch.json file; for instance to run help.feature od DEV and Firefox
-{
+```{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
