@@ -16,6 +16,7 @@
 # $ ./run.sh stage firefox
 # $ ./run.sh prod chrome
 # $ ./run.sh prod chrome features/login.feature
+# $ ./run.sh dev firefox features/help.feature
 # 
 
 environment=$1
