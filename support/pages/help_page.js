@@ -78,7 +78,7 @@ class HelpPage extends Page {
         let blox_title = await this.browser.window(blox_win).getTitle();
         let blox_url = await this.browser.window(blox_win).getUrl();
         console.log('blox_title: ' + blox_title); 
-        console.log('blox_title: ' + blox_url);
+        console.log('blox_url: ' + blox_url);
         // compare if url of the 2nd window blox_win includes 'bloxico.com/contact' string
         // we could also use the title, but is more likely to change 
         assert(blox_url.includes('bloxico.com/contact'))
