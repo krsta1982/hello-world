@@ -9,7 +9,7 @@ function sleep(delay) {
     while (new Date().getTime() < start + delay*1000);
 }
 
-class ProfilePage extends Page {
+class HelpPage extends Page {
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }
@@ -19,8 +19,9 @@ class ProfilePage extends Page {
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
     get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
-    get profileLinkSel () { return '[id="nav_3"]' }
-    get profileTitelPage () { return '[class="enrg-edit-profile"]' }
+    get helpLinkSel () { return '[id="nav_4"]' }
+    get contactTitel () { return '[class="entry-title"]' }
+    get urlBloxico () { return '[http://google.com/]' }
 
     // Elements
     get signInButton () { return this.browser.element(this.signInButtonTWO) }
@@ -28,7 +29,7 @@ class ProfilePage extends Page {
     get passwordField () { return this.browser.element(this.passwordSel) }
     get logInButton () { return this.browser.element(this.loginButtSel) }
     get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
-    get profileLink () { return this.browser.element(this.profileLinkSel) }
+    get helpLink () { return this.browser.element(this.helpLinkSel) }
 
     // Methods
     async navigateTologIn () {
@@ -56,20 +57,23 @@ class ProfilePage extends Page {
         sleep(1)
     }
 
-    async findProfile () {
-        await this.browser.waitForVisible(this.profileLinkSel, config.waitTime.medium)
-        await this.browser.waitForText(this.profileLinkSel, config.waitTime.medium)
+    async findHelp () {
+        await this.browser.waitForVisible(this.helpLinkSel, config.waitTime.medium)
+        await this.browser.waitForText(this.helpLinkSel, config.waitTime.medium)
     }
 
-    async clickProfile () {
-        await this.profileLink.click()
+    async clickHelp () {
+        await this.helpLink.click()
         sleep(1)
     }
 
-    async checkProfilePage () {
-        await this.browser.waitForVisible(this.profileTitelPage, config.waitTime.medium)
-        await this.browser.waitForText(this.profileTitelPage, config.waitTime.medium)
+    async checkHelpPage () {
+        // await this.browser.waitForVisible(this.contactTitel, config.waitTime.medium)
+        // await this.browser.waitForText(this.contactTitel, config.waitTime.medium)
+        // let contentContact = await this.browser.getText(this.contactTitel)
+        // assert.strictEqual(contentContact[0], 'Total accumul', `the string ${contentContact[0]} does not match 'Total accumul' `)
+        await this.browser.getUrl(this.urlBloxico, config.waitTime.medium)
     }
 }
 
-module.exports = ProfilePage
+module.exports = HelpPage

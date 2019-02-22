@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: createAcc.feature
-# DESCRIPTION: createAcc.feature
+# FILE NAME: transaction.feature
+# DESCRIPTION: transaction.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 12-FEB-19
 # NOTES:
@@ -12,8 +12,10 @@ Feature: Open transaction page
   I want to see my transaction
   So that I go to transaction page
 
+  Background:
+  Given I am on dashboard page
+  When I click Hamburger button
+
    Scenario:
-    Given I am on login page
-    When I click Menu button
     And I click Transaction link
     Then I should see transaction page
