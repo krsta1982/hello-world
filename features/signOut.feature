@@ -1,13 +1,14 @@
 
 #
-# FILE NAME: help.feature
-# DESCRIPTION: help.feature
+# FILE NAME: signOut.feature
+# DESCRIPTION: signOut.feature
 # AUTHOR: Filip Vidakovic (Vidak)
-# CREATED: 19-FEB-19
+# CREATED: 21-FEB-19
 # NOTES:
 #
 
 Feature: Sign out
+
   As a user of EC Dashboard
   I need help
   So that I go to help page
@@ -16,6 +17,7 @@ Feature: Sign out
   Given I am on dashboard page
   When I click Hamburger button
 
-  Scenario: Sign out on EC Dashboard
-    And I click Help link
-    Then I should see Bloxico support
+  Scenario: Log out with EC Dashboard
+  When I click on sign out
+  Then I should see landing page
+
