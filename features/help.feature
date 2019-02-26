@@ -7,7 +7,7 @@
 # NOTES:
 #
 
-Feature: Sign out
+Feature: Help page
   As a user of EC Dashboard
   I need help
   So that I go to help page
@@ -16,6 +16,6 @@ Feature: Sign out
   Given I am on dashboard page
   When I click Hamburger button
 
-  Scenario: Sign out on EC Dashboard
+  Scenario: I need help
     And I click Help link
     Then I should see Bloxico support
