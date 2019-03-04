@@ -1,10 +1,10 @@
 
-const Page = require('./page')
+const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-class CreateAccPage extends Page {
+class CreateAccPage extends BasePage {
 // Selectors
     get createAccountButtonONE () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
     get mainContainer () { return '[class="enrg-app"]' }

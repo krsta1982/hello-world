@@ -1,10 +1,10 @@
 // login_page.js
-const Page = require('./page')
+const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-class LoginPage extends Page {
+class LoginPage extends BasePage {
   // Selectors
   get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
   get mainContainer () { return '[class="enrg-app"]' }
@@ -34,12 +34,12 @@ class LoginPage extends Page {
     await this.logInButton.click()
   }
 
-  async checkIfLoged () {
-    await this.browser.waitForVisible(this.totalTitleSel, config.waitTime.medium)
-    await this.browser.waitForText(this.totalTitleSel, config.waitTime.medium)
-    let totalTitle = await this.browser.getText(this.totalTitleSel)
-    assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
-  }
+  // async checkIfLoged () {
+  //   await this.browser.waitForVisible(this.totalTitleSel, config.waitTime.medium)
+  //   await this.browser.waitForText(this.totalTitleSel, config.waitTime.medium)
+  //   let totalTitle = await this.browser.getText(this.totalTitleSel)
+  //   assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
+  // }
 }
 
 module.exports = LoginPage
