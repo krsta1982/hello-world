@@ -12,8 +12,12 @@ Feature: Create an account
 As a new user
 I want to create an account
 
-  Scenario: Create an account
+  Scenario: Create an account with valid info
    When I enter the username, password, reapet password, city and nickname
    Then I should be able to create account
+
+   Scenario: Create an account with invalid mail
+    When I enter the invalid email, password, reapet password, city and nickname
+    Then I should see under field text "EMAIL IS NOT VALID"
 
 
