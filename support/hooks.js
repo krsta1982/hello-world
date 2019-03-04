@@ -1,12 +1,12 @@
 const { BeforeAll, Before, After } = require('cucumber')
 const Logger = require('logplease')
 const TestData = require('../util/test_data')
+const BasePage = require('./pages/base_page')
 const LoginPage = require('./pages/login_page')
 const CreateAccPage = require('./pages/createAcc_page')
 const TransactionPage = require('./pages/transaction_page')
 const ProfilePage = require('./pages/profile_page')
 const HelpPage = require('./pages/help_page')
-const SignOut = require('./pages/signOut')
 const ResetPassword = require('./pages/resetPassword')
 
 let testData
@@ -24,14 +24,14 @@ Before(async function (scenario) {
   this.logger = logger
   await this.browser.init()
 
-  // init page objects
+  // init page objects. At the mement when we creare a new page, we must add it here (ToDo: try to improve it)
   this.page = {}
+  this.basePage = new BasePage(this)
   this.loginPage = new LoginPage(this)
   this.createAccPage = new CreateAccPage(this)
   this.transactionPage = new TransactionPage(this)
   this.profilePage = new ProfilePage(this)
   this.helpPage = new HelpPage(this)
-  this.signOut = new SignOut(this)
   this.resetPassword = new ResetPassword(this)
 
   if (!testData) {

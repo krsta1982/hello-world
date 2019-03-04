@@ -1,15 +1,10 @@
 
-const Page = require('./page')
+const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay*1000);
-}
-
-class HelpPage extends Page {
+class HelpPage extends BasePage {
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }
@@ -18,7 +13,7 @@ class HelpPage extends Page {
     get passwordSel () { return '[name="password"]' }
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
-    get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
+    // get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
     get helpLinkSel () { return '[id="nav_4"]' }
     get contactTitel () { return '[class="entry-title"]' }
     get urlBloxico () { return '[http://google.com/]' }
@@ -28,7 +23,7 @@ class HelpPage extends Page {
     get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
     get passwordField () { return this.browser.element(this.passwordSel) }
     get logInButton () { return this.browser.element(this.loginButtSel) }
-    get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
+    // get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
     get helpLink () { return this.browser.element(this.helpLinkSel) }
 
     // Methods
@@ -52,11 +47,6 @@ class HelpPage extends Page {
         assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
     }
 
-    async clickOnhamburger () {
-        await this.hamburgerButton.click()
-        sleep(1)
-    }
-
     async findHelp () {
         await this.browser.waitForVisible(this.helpLinkSel, config.waitTime.medium)
         await this.browser.waitForText(this.helpLinkSel, config.waitTime.medium)
@@ -64,7 +54,6 @@ class HelpPage extends Page {
 
     async clickHelp () {
         await this.helpLink.click()
-        sleep(1)
     }
 
     async checkHelpPage () {

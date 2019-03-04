@@ -1,15 +1,10 @@
 
-const Page = require('./page')
+const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay*1000);
-}
-
-class TransactionPage extends Page {
+class TransactionPage extends BasePage {
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }
@@ -18,7 +13,6 @@ class TransactionPage extends Page {
     get passwordSel () { return '[name="password"]' }
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
-    get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
     get transactionLinkSel () { return '[id="nav_2"]' }
     get transTitlePage () { return '[class="enrg-header__title"]' }
 
@@ -27,7 +21,6 @@ class TransactionPage extends Page {
     get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
     get passwordField () { return this.browser.element(this.passwordSel) }
     get logInButton () { return this.browser.element(this.loginButtSel) }
-    get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
     get transactionLink () { return this.browser.element(this.transactionLinkSel) }
 
     // Methods
@@ -51,11 +44,6 @@ class TransactionPage extends Page {
         assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
     }
 
-    async clickOnhamburger () {
-        await this.hamburgerButton.click()
-        sleep(2)
-    }
-
     async findTransaction () {
         await this.browser.waitForVisible(this.transactionLinkSel, config.waitTime.medium)
         await this.browser.waitForText(this.transactionLinkSel, config.waitTime.medium)
@@ -64,7 +52,6 @@ class TransactionPage extends Page {
 
     async clickTransaction () {
         await this.transactionLink.click()
-        sleep(2)
     }
 
     // async checkTransPage () {
