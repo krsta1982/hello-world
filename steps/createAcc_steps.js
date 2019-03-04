@@ -16,12 +16,13 @@ const createAccPage = require('../support/pages/createAcc_page')
            await this.createAccPage.checkIfCreate()
          });
 
-// Scenario: Create an account with invalid mail
+// Scenario Outline: Create an account with invalid mail
 
-   When('I enter the invalid email, password, reapet password, city and nickname', {timeout: 20000 }, async function () {
-           await this.createAccPage.navigateToCreateAccount()
-           await this.createAccPage.createAccInvalidMail()
+   When('I enter invalid {string}, password, reapet password, city and nickname', {timeout: 20000 }, async function (email) {
+           await this.browser.wait
+           
+          
          })
-   Then('I should see under field text "EMAIL IS NOT VALID"', { timeout: 25000 }, async function () {
+   Then('I should see under email field text "EMAIL IS NOT VALID"', { timeout: 25000 }, async function () {
            await this.createAccPage.mailError()
    })

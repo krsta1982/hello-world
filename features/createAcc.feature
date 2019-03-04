@@ -9,15 +9,54 @@
 
 
 Feature: Create an account
-As a new user
-I want to create an account
+   As a new user
+   I want to create an account
 
   Scenario: Create an account with valid info
-   When I enter the username, password, reapet password, city and nickname
-   Then I should be able to create account
+      When I enter the email, password, reapet password, city and nickname
+      Then I should be able to create account
 
-   Scenario: Create an account with invalid mail
-    When I enter the invalid email, password, reapet password, city and nickname
-    Then I should see under field text "EMAIL IS NOT VALID"
 
+  Scenario Outline: Create an account with invalid info
+      When I enter invalid "<email>", password, reapet password, city and nickname
+      Then I should see under mail field text "EMAIL IS NOT VALID"
+
+
+Examples:
+
+ |email                  |
+ |qatesting1@mail@new.how|
+ |test.test.com          |
+ |s@s.s                  |
+ |@testing.com           |
+
+
+#  Scenario: Create an account without selecting a country
+#       When I enter all valid info just skipped country field
+#       Then I should see "REQUIRED" message under country select field
+
+ 
+#  Scenario: Create an account without entering a city
+#       When I enter all valid info just skipped city field
+#       Then I should see "REQUIRED" message under city text field
+
+
+#  Scenario: Create an account invalid password
+#       When I enter an invalid password
+#       Then I should see "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL." message under password field
+
+
+# Scenario: Create an account with email that already used
+# 	When I enter an email that already used
+# 	Then I should get pop-up message "User already exists."
+
+
+# Scenario: Click on arrow button
+# 	When I click on the arrow button
+# 	Then I expect to back me on the landing page
+
+
+# Scenario: Reload page
+#      When I entering all valid info
+#      Then I should see all field empety    
 
