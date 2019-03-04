@@ -12,23 +12,25 @@ Feature: Create an account
    As a new user
    I want to create an account
 
+Background: Background for Create Account to ECD feature
+    Given I am on Create Account page of ECD
+
   Scenario: Create an account with valid info
-      When I enter the email, password, reapet password, city and nickname
+      When I enter the username, password, reapet password, city and nickname
       Then I should be able to create account
 
 
   Scenario Outline: Create an account with invalid info
       When I enter invalid "<email>", password, reapet password, city and nickname
-      Then I should see under mail field text "EMAIL IS NOT VALID"
+      And I click on Continue button
+      Then I should see under email field text EMAIL IS NOT VALID
 
-
-Examples:
-
- |email                  |
- |qatesting1@mail@new.how|
- |test.test.com          |
- |s@s.s                  |
- |@testing.com           |
+    Examples:
+        | email                  |
+        | qatesting1@mail@new.how|
+        | test.test.com          |
+        | s@s.s                  |
+        | @testing.com           |
 
 
 #  Scenario: Create an account without selecting a country

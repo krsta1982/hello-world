@@ -4,11 +4,9 @@ const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-class CreateAccPage extends BasePage {
-// Selectors
-    get createAccountButtonONE () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
-    get mainContainer () { return '[class="enrg-app"]' }
-    get createAccountPageTxt () { return '[class="enrg-header__title"]' }
+class CreateAccPage extends BasePage {  
+
+    // Create Account page fields selectors
     get emailfieldSel () { return '[name="email"]' }
     get passwordSel () { return '[name="password"]' }
     get reapetPasswordSel () { return '[name="matchPassword"]' }
@@ -16,11 +14,16 @@ class CreateAccPage extends BasePage {
     get cityfielSel () { return '[name="city"]' }
     get nicknamefielSel () { return '[name="name"]' }
     get continueButtSel () { return '[type="submit"]' }
+
+    // Other selectors
+    get createAccountButtonONE () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
+    get mainContainer () { return '[class="enrg-app"]' }
+    get createAccountPageTxt () { return '[class="enrg-header__title"]' }  
     get verifyContainer () { return '[class="enrg-form enrg-verify__content"]' }
     get verifyTitleSel () { return '[class="enrg-header__title"]' }
     get emailErrorSel () { return '[class="enrg-input__message"]' }
 
-// Elements
+    // Elements
     get createAccountButton () { return this.browser.element(this.createAccountButtonONE) }
     get emailTextField () { return this.browser.element(this.emailfieldSel) }
     get passwordTextField () { return this.browser.element(this.passwordSel) }
@@ -30,32 +33,48 @@ class CreateAccPage extends BasePage {
     get nicknameTextField () { return this.browser.element(this.nicknamefielSel) }
     get createAccBtn () { return this.browser.element(this.continueButtSel) }
 
-// Methods
+    // Methods
     async navigateToCreateAccount () {
         await super.open()
         await this.browser.waitForVisible(this.mainContainer, config.waitTime.long)
         await this.createAccountButton.click()
     }
 
-    async createAccount () {
-        await this.browser.waitForVisible(this.createAccountPageTxt, config.waitTime.medium)
-        await this.emailTextField.setValue(TestData.getUser('qa_user_1').email)
-        await this.passwordTextField.setValue(TestData.getUser('qa_user_1').password)
-        await this.reapetPasswordTextField.setValue(TestData.getUser('qa_user_1').reapetPassword)
-        await this.selectListCountry.selectByAttribute('value', TestData.getUser('qa_user_1').country)
-        await this.cityTextField.setValue(TestData.getUser('qa_user_1').city)
-        await this.nicknameTextField.setValue(TestData.getUser('qa_user_1').nickname)
-        await this.createAccBtn.click()
+    async wait_to_open () {
+       // wait for a condition
+        await this.browser.waitForVisible(this.createAccountPageTxt, 10*1000)
     }
 
-    async createAccInvalidMail () {
-        await this.browser.waitForVisible(this.createAccountPageTxt, config.waitTime.medium)
-        await this.emailTextField.setValue(TestData.getUser('qa_user_3').email)
-        await this.passwordTextField.setValue(TestData.getUser('qa_user_3').password)
-        await this.reapetPasswordTextField.setValue(TestData.getUser('qa_user_3').reapetPassword)
-        await this.selectListCountry.selectByAttribute('value', TestData.getUser('qa_user_3').country)
-        await this.cityTextField.setValue(TestData.getUser('qa_user_3').city)
-        await this.nicknameTextField.setValue(TestData.getUser('qa_user_3').nickname)
+    get_default_username () {
+        return TestData.getUser('qa_user_1').email
+    }
+
+    get_default_password () {
+        return TestData.getUser('qa_user_1').password
+    }
+    
+    get_default_country () {
+        return TestData.getUser('qa_user_1').country
+    }
+    
+    get_default_city () {
+        return TestData.getUser('qa_user_1').city
+    }
+    
+    get_default_nickname () {
+        return TestData.getUser('qa_user_1').nickname
+    }
+
+    async createDefaultAccount () {
+        this.wait_to_open()
+
+        await this.emailTextField.setValue(this.get_default_username())
+        await this.passwordTextField.setValue(this.get_default_password())
+        await this.reapetPasswordTextField.setValue(this.get_default_password())
+        await this.selectListCountry.selectByAttribute('value', this.get_default_country())
+        await this.cityTextField.setValue(this.get_default_city())
+        await this.nicknameTextField.setValue(this.get_default_nickname())
+
         await this.createAccBtn.click()
     }
 
