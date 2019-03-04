@@ -6,7 +6,9 @@ Given('I am on Login page of ECD', { timeout: 20000 }, async function () {
 })
 
 When('I enter the username and password', { timeout: 20000 }, async function () {
-  await this.loginPage.login()
+  await this.loginPage.login_default_user()
+
+  // ToDo: if the defult user doesn't exist it should be created 
 })
 
 Then('I should be logged in ECD', { timeout: 20000 }, async function () {

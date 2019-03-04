@@ -8,7 +8,7 @@
 
 users:
   qa_user_1:
-    email: qatesting97@cliptik.net
+    email: qatesting00047@cliptik.net
     password: Isto123!
     reapetPassword: Isto123!
     country: Serbia
@@ -26,3 +26,6 @@ users:
     country: Serbia
     city: BGD
     nickname: invalidMail
+
+  qa_user_4:
+    email: filip.vidakovic@bloxico.com
