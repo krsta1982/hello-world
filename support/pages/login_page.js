@@ -35,12 +35,12 @@ class LoginPage extends BasePage {
     await this.logInButton.click()
   }
 
-  // async checkIfLoged () {
-  //   await this.browser.waitForVisible(this.totalTitleSel, config.waitTime.medium)
-  //   await this.browser.waitForText(this.totalTitleSel, config.waitTime.medium)
-  //   let totalTitle = await this.browser.getText(this.totalTitleSel)
-  //   assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
-  // }
+  async checkIfLoged () {
+    await this.browser.waitForVisible(this.totalTitleSel, config.waitTime.medium)
+    await this.browser.waitForText(this.totalTitleSel, config.waitTime.medium)
+    let totalTitle = await this.browser.getText(this.totalTitleSel)
+    assert(totalTitle[0] == "Total accumulated", `the string ${totalTitle[0]} does not match "Total accumulated" `)
+  }
 }
 
 module.exports = LoginPage

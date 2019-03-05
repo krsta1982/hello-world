@@ -20,5 +20,5 @@ When('I click Transaction link', { timeout: 37000 }, async function () {
 })
        
 Then('I should see transaction page', {timeout: 40000}, async function () {
-        // await this.transactionPage.checkTransPage()
+        await this.transactionPage.checkTransPage()
 })

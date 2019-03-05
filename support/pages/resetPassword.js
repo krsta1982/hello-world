@@ -49,7 +49,7 @@ class ResetPassword extends Page {
       await this.browser.waitForVisible(this.resetTitle, config.waitTime.medium)
       await this.browser.waitForText(this.resetTitle, config.waitTime.medium)
       let titleReset = await this.browser.getText(this.resetTitle)
-    //   assert.strictEqual(titleReset, 'Total', `the string ${titleReset} does not match "Total" `)
+      assert(titleReset == "Reset password", `the string ${titleReset} does not matcg "Reset password" `)
   }
 }
 
