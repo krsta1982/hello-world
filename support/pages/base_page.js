@@ -12,24 +12,16 @@ function sleep(delay) {
 class BasePage extends Page {
 
   // Selectors
-  get mainContainer () { return '[class="enrg-app"]' }
-  get signInPagetxt () { return '[class="enrg-header__title"]' }
-  get emailfieldSel () { return '[name="username"]' }
-  get passwordSel () { return '[name="password"]' }
-  get loginButtSel () { return '[type="submit"]' }
-  get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
+  get totalTitleSel () { return '[class="enrg-dashboard__title"]' }
   get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
   get singOutSel () { return '[id="nav_5"]' }
 
   // Elements
-  get signInButton () { return this.browser.element(this.signInButtonTWO) }
-  get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
-  get passwordField () { return this.browser.element(this.passwordSel) }
-  get logInButton () { return this.browser.element(this.loginButtSel) }
   get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
   get signOutButton () { return this.browser.element(this.singOutSel) }
 
   // Methods
+  
   async clickOnhamburger () {
     await this.hamburgerButton.click()
   }
@@ -49,11 +41,6 @@ class BasePage extends Page {
   async signOut () {
     await this.signOutButton.click()
   }
-
-  async checkLandingPage () {
-    await this.browser.waitForVisible(this.mainContainer, config.waitTime.medium)
-    await this.browser.waitForText(this.mainContainer, config.waitTime.medium)
-    }
 
 }
 

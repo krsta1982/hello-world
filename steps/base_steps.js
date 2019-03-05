@@ -7,6 +7,11 @@ When('I click on sign out', { timeout: 20000 }, async function () {
         await this.basePage.signOut()
 })
 
-Then('I should see landing page', { timeout: 25000 }, async function () {
-        await this.basePage.checkLandingPage()
+Then('I should be logged in ECD', { timeout: 20000 }, async function () {
+    await this.basePage.checkIfLoged()
+})
+
+When('I click Hamburger button', { timeout: 30000}, async function () {
+    await this.basePage.checkIfLoged()
+    await this.basePage.clickOnhamburger()
 })

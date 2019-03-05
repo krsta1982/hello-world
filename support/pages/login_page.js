@@ -1,22 +1,21 @@
 // login_page.js
-const BasePage = require('./base_page')
+const Page = require('./page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-class LoginPage extends BasePage {
+class LoginPage extends Page {
   
   // Selectors
-  get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
+  get signInButtonSel () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
   get mainContainer () { return '[class="enrg-app"]' }
   get signInPageTxt () { return '[class="enrg-header__title"]' }
   get emailfieldSel () { return '[name="username"]' }
   get passwordSel () { return '[name="password"]' }
   get loginButtSel () { return '[type="submit"]' }
-  get totalTitleSel () { return '[class="enrg-dashboard__title"]' }
 
   // Elements
-  get signInButton () { return this.browser.element(this.signInButtonTWO) }
+  get signInButton () { return this.browser.element(this.signInButtonSel) }
   get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
   get passwordField () { return this.browser.element(this.passwordSel) }
   get logInButton () { return this.browser.element(this.loginButtSel) }
@@ -35,12 +34,11 @@ class LoginPage extends BasePage {
     await this.logInButton.click()
   }
 
-  // async checkIfLoged () {
-  //   await this.browser.waitForVisible(this.totalTitleSel, config.waitTime.medium)
-  //   await this.browser.waitForText(this.totalTitleSel, config.waitTime.medium)
-  //   let totalTitle = await this.browser.getText(this.totalTitleSel)
-  //   assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
-  // }
+  async checkLandingPage () {
+    await this.browser.waitForVisible(this.mainContainer, config.waitTime.medium)
+    await this.browser.waitForText(this.mainContainer, config.waitTime.medium)
+  }
+
 }
 
 module.exports = LoginPage
