@@ -14,6 +14,7 @@ class CreateAccPage extends BasePage {
     get cityfielSel () { return '[name="city"]' }
     get nicknamefielSel () { return '[name="name"]' }
     get continueButtSel () { return '[type="submit"]' }
+    get arrowButtonSel () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
 
     // Other selectors
     get createAccountButtonONE () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
@@ -32,6 +33,7 @@ class CreateAccPage extends BasePage {
     get cityTextField () { return this.browser.element(this.cityfielSel) }
     get nicknameTextField () { return this.browser.element(this.nicknamefielSel) }
     get createAccBtn () { return this.browser.element(this.continueButtSel) }
+    get arrowButton () { return this.browser.element(this.arrowButtonSel)}
 
     // Methods
     async navigateToCreateAccount () {
@@ -90,6 +92,12 @@ class CreateAccPage extends BasePage {
         await this.browser.waitForText(this.emailErrorSel, config.waitTime.medium)
         let error = await this.browser.getText(this.emailErrorSel)
         // assert.strictEqual(error[0], 'Total acc', `the string ${error[0]} not match`)
+    }
+
+    async backArrow () {
+        // await this.browser.waitForVisible(this.arrowButtonSel, config.waitTime.medium)
+        // await this.browser.waitForText(this.arrowButtonSel, config.waitTime.medium)
+        await this.arrowButton.click()
     }
 }
 
