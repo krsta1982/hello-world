@@ -37,14 +37,12 @@ class ResetPassword extends Page {
       await this.browser.waitForVisible(this.resetBtnSel, config.waitTime.medium)
       await this.browser.waitForText(this.resetBtnSel, config.waitTime.medium)
       await this.resetButton.click()
-      sleep(2)
   }
 
   async enterEmail () {
       await this.browser.waitForVisible(this.resetTitle, config.waitTime.medium)
       await this.emailField.setValue(TestData.getUser('qa_user_4').email)
       await this.continueButton.click()
-      sleep(2)
   }
 
   async checkReset () {

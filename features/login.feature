@@ -7,8 +7,8 @@
 #
 
 Feature: Login to EnergyCoin Dashboard (ECD)
-As the application user
-I want to open and login to the application
+    As the application user
+    I want to open and login to the application
 
 Background: Background for Login to ECD feature
     Given I am on Login page of ECD
