@@ -1,16 +1,24 @@
 const { Given, When, Then } = require('cucumber')
+const basePage = require('../support/pages/base_page')
 const loginPage = require('../support/pages/login_page')
+
+
+Then('I should see landing page', { timeout: 25000 }, async function () {
+        await this.loginPage.checkLandingPage()
+})
 
 Given('I am on Login page of ECD', { timeout: 20000 }, async function () {
         await this.loginPage.navigateTologIn()
 })
 
 When('I enter the username and password', { timeout: 20000 }, async function () {
-        await this.loginPage.login()
+        await this.loginPage.login_default_user()
 })
 
-Then('I should be logged in ECD', { timeout: 20000 }, async function () {
-        await this.loginPage.checkIfLoged()
+Given('I am on dashboard page', { timeout: 20000 }, async function () {
+        await this.loginPage.navigateTologIn()
+        await this.loginPage.login_default_user()
+        await this.basePage.checkIfLoged()
 })
 
 // When('I enter the {string} username and {string} password', { timeout: 20000 }, function (username, password, callback) {
