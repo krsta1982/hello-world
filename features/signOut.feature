@@ -8,16 +8,15 @@
 #
 
 Feature: Sign out
+    As a user of EC Dashboard
+    I need help
+    So that I go to help page
 
-  As a user of EC Dashboard
-  I need help
-  So that I go to help page
+Background:
+    Given I am on dashboard page
+    When I click Hamburger button
 
-  Background:
-  Given I am on dashboard page
-  When I click Hamburger button
-
-  Scenario: Log out with EC Dashboard
-  When I click on sign out
-  Then I should see landing page
+Scenario: Log out with EC Dashboard
+    When I click on sign out
+    Then I should see landing page
 

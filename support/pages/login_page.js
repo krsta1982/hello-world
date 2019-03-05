@@ -5,6 +5,7 @@ const config = require('../../config/config')
 const assert = require('assert')
 
 class LoginPage extends BasePage {
+  
   // Selectors
   get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
   get mainContainer () { return '[class="enrg-app"]' }

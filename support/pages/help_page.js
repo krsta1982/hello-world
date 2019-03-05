@@ -1,10 +1,10 @@
-
 const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
 class HelpPage extends BasePage {
+
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }

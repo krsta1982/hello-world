@@ -8,14 +8,14 @@
 #
 
 Feature: Open transaction page
-  As a user of EC Dashboard
-  I want to see my transaction
-  So that I go to transaction page
+    As a user of EC Dashboard
+    I want to see my transaction
+    So that I go to transaction page
 
-  Background:
-  Given I am on dashboard page
-  When I click Hamburger button
+Background:
+    Given I am on dashboard page
+    When I click Hamburger button
 
-   Scenario:
+Scenario:
     And I click Transaction link
     Then I should see transaction page

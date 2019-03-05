@@ -1,10 +1,10 @@
-
 const BasePage = require('./base_page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
 class ProfilePage extends BasePage {
+
     // Selectors
     get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
     get mainContainer () { return '[class="enrg-app"]' }
@@ -13,7 +13,6 @@ class ProfilePage extends BasePage {
     get passwordSel () { return '[name="password"]' }
     get loginButtSel () { return '[type="submit"]' }
     get totalTitelSel () { return '[class="enrg-dashboard__title"]' }
-    // get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
     get profileLinkSel () { return '[id="nav_3"]' }
     get profileTitelPage () { return '[class="enrg-edit-profile"]' }
 
@@ -22,7 +21,6 @@ class ProfilePage extends BasePage {
     get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
     get passwordField () { return this.browser.element(this.passwordSel) }
     get logInButton () { return this.browser.element(this.loginButtSel) }
-    // get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
     get profileLink () { return this.browser.element(this.profileLinkSel) }
 
     // Methods

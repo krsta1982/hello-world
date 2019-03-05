@@ -10,8 +10,8 @@ function sleep(delay) {
 }
 
 class BasePage extends Page {
+
   // Selectors
-  // get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
   get mainContainer () { return '[class="enrg-app"]' }
   get signInPagetxt () { return '[class="enrg-header__title"]' }
   get emailfieldSel () { return '[name="username"]' }
@@ -21,14 +21,13 @@ class BasePage extends Page {
   get hamburgerBtnSell () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
   get singOutSel () { return '[id="nav_5"]' }
 
-
   // Elements
   get signInButton () { return this.browser.element(this.signInButtonTWO) }
-    get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
-    get passwordField () { return this.browser.element(this.passwordSel) }
-    get logInButton () { return this.browser.element(this.loginButtSel) }
-    get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
-    get signOutButton () { return this.browser.element(this.singOutSel) }
+  get emailTextFiled () { return this.browser.element(this.emailfieldSel) }
+  get passwordField () { return this.browser.element(this.passwordSel) }
+  get logInButton () { return this.browser.element(this.loginButtSel) }
+  get hamburgerButton () { return this.browser.element(this.hamburgerBtnSell) }
+  get signOutButton () { return this.browser.element(this.singOutSel) }
 
   // Methods
   async clickOnhamburger () {
