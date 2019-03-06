@@ -33,7 +33,7 @@ When('I click on Continue button', {timeout: 20000}, async  function () {
 })
 
 Then('I should see under email field text EMAIL IS NOT VALID', { timeout: 25000 }, async function () {
-        await this.createAccPage.mailError()
+        await this.createAccPage.emailNotValid()
 })
 
 When('I enter all valid info just skipped country field', { timeout: 20000 }, async function () {
@@ -48,7 +48,7 @@ When('I enter all valid info just skipped country field', { timeout: 20000 }, as
 })
 
 Then('I should see REQUIRED message under country select field', { timeout: 20000 }, async function () {
-        await this.createAccPage.mailError()
+        // await this.createAccPage.mailError()
 })
 
 When('I enter all valid info just skipped city field', { timeout: 20000 }, async function () {
@@ -65,7 +65,7 @@ When('I enter all valid info just skipped city field', { timeout: 20000 }, async
 })
 
 Then('I should see REQUIRED message under city text field', { timeout: 20000 }, async function () {
-        await this.createAccPage.mailError()
+        // await this.createAccPage.mailError()
 })
 
 When('I enter an invalid {string}', {timeout: 20000 }, async function (passwords) {
@@ -82,7 +82,7 @@ When('I enter an invalid {string}', {timeout: 20000 }, async function (passwords
 })
 
 Then('I should see AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL. message under password field', { timeout: 25000 }, async function () {
-        await this.createAccPage.mailError()
+        await this.createAccPage.passwordRequired()
 })
 
 When('I click on the arrow button', { timeout: 20000 }, async function() {

@@ -22,6 +22,7 @@ class CreateAccPage extends Page {
     get verifyContainer () { return '[class="enrg-form enrg-verify__content"]' }
     get verifyTitleSel () { return '[class="enrg-header__title"]' }
     get emailErrorSel () { return '[class="enrg-input__message"]' }
+    get passwordErrorSel () { return '[class="enrg-input__message"]' }
 
     // Elements
     get createAccountButton () { return this.browser.element(this.createAccountButtonSel) }
@@ -82,15 +83,22 @@ class CreateAccPage extends Page {
     async checkIfCreate () {
         await this.browser.waitForVisible(this.verifyContainer, config.waitTime.medium)
         await this.browser.waitForText(this.verifyTitleSel, config.waitTime.medium)
-        let totalTitle = await this.browser.getText(this.verifyTitleSel)
-        // assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
+        let verifyTitle = await this.browser.getText(this.verifyTitleSel)
+        assert(verifyTitle == "Verify account", `the string ${verifyTitle} does not mach "Verify account" `)
     }
 
-    async mailError () {
+    async emailNotValid () {
         await this.browser.waitForVisible(this.emailErrorSel, config.waitTime.medium)
         await this.browser.waitForText(this.emailErrorSel, config.waitTime.medium)
         let error = await this.browser.getText(this.emailErrorSel)
-        // assert.strictEqual(error[0], 'Total acc', `the string ${error[0]} not match`)
+        assert(error == "EMAIL IS NOT VALID", `the string ${error} does not match "EMAIL IS NOT VALID" `)
+    }
+
+    async passwordRequired () {
+        await this.browser.waitForVisible(this.passwordErrorSel, config.waitTime.medium)
+        await this.browser.waitForText(this.passwordErrorSel, config.waitTime.medium)
+        let password = await this.browser.getText(this.passwordErrorSel)
+        assert(password == "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL.,PASSWORDS DON'T MATCH", `the string ${password} does not match "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL.,PASSWORDS DON'T MATCH" `)
     }
 
     async backArrow () {
