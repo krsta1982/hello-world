@@ -1,9 +1,9 @@
-const BasePage = require('./base_page')
+const Page = require('./page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
 
-class CreateAccPage extends BasePage {  
+class CreateAccPage extends Page {  
 
     // Create Account page fields selectors
     get emailfieldSel () { return '[name="email"]' }
@@ -16,7 +16,7 @@ class CreateAccPage extends BasePage {
     get arrowButtonSel () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
 
     // Other selectors
-    get createAccountButtonONE () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
+    get createAccountButtonSel () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
     get mainContainer () { return '[class="enrg-app"]' }
     get createAccountPageTxt () { return '[class="enrg-header__title"]' }  
     get verifyContainer () { return '[class="enrg-form enrg-verify__content"]' }
@@ -24,7 +24,7 @@ class CreateAccPage extends BasePage {
     get emailErrorSel () { return '[class="enrg-input__message"]' }
 
     // Elements
-    get createAccountButton () { return this.browser.element(this.createAccountButtonONE) }
+    get createAccountButton () { return this.browser.element(this.createAccountButtonSel) }
     get emailTextField () { return this.browser.element(this.emailfieldSel) }
     get passwordTextField () { return this.browser.element(this.passwordSel) }
     get reapetPasswordTextField () { return this.browser.element(this.reapetPasswordSel) }
