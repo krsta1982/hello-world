@@ -58,7 +58,6 @@ When('I enter all valid info just skipped city field', { timeout: 20000 }, async
         await this.createAccPage.passwordTextField.setValue(this.createAccPage.get_default_password())
         await this.createAccPage.reapetPasswordTextField.setValue(this.createAccPage.get_default_password())
         await this.createAccPage.selectListCountry.selectByAttribute('value', this.createAccPage.get_default_country())
-        // await this.createAccPage.cityTextField.setValue(this.createAccPage.get_default_city())
         await this.createAccPage.nicknameTextField.setValue(this.createAccPage.get_default_nickname())
 
         await this.createAccPage.createAccBtn.click()
@@ -83,6 +82,14 @@ When('I enter an invalid {string}', {timeout: 20000 }, async function (passwords
 
 Then('I should see AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL. message under password field', { timeout: 25000 }, async function () {
         await this.createAccPage.passwordRequired()
+})
+
+When('I enter an email that already used', { timeout: 25000 }, async function () {
+        await this.createAccPage.createAccountUserExist()
+})
+
+Then('I should get pop-up message User already exists.', { timeout: 25000 }, async function () {
+        await this.createAccPage.userAlreadyExist()
 })
 
 When('I click on the arrow button', { timeout: 20000 }, async function() {
