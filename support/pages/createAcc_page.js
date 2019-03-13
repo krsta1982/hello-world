@@ -13,6 +13,7 @@ class CreateAccPage extends Page {
     get cityfielSel () { return '[name="city"]' }
     get nicknamefielSel () { return '[name="name"]' }
     get continueButtSel () { return '[type="submit"]' }
+    get userExistSel () { return '[class="enrg-error-message__content"]' } 
     get arrowButtonSel () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
 
     // Other selectors
@@ -22,6 +23,7 @@ class CreateAccPage extends Page {
     get verifyContainer () { return '[class="enrg-form enrg-verify__content"]' }
     get verifyTitleSel () { return '[class="enrg-header__title"]' }
     get emailErrorSel () { return '[class="enrg-input__message"]' }
+    get passwordErrorSel () { return '[class="enrg-input__message"]' }
 
     // Elements
     get createAccountButton () { return this.browser.element(this.createAccountButtonSel) }
@@ -79,18 +81,45 @@ class CreateAccPage extends Page {
         await this.createAccBtn.click()
     }
 
+    async createAccountUserExist () {
+        await this.wait_to_open()
+
+        await this.emailTextField.setValue(TestData.getUser('qa_user_3').email)
+        await this.passwordTextField.setValue(TestData.getUser('qa_user_3').password)
+        await this.reapetPasswordTextField.setValue(TestData.getUser('qa_user_3').reapetPassword)
+        await this.selectListCountry.selectByAttribute('value', TestData.getUser('qa_user_3').country)
+        await this.cityTextField.setValue(TestData.getUser('qa_user_3').city)
+        await this.nicknameTextField.setValue(TestData.getUser('qa_user_3').nickname)
+
+        await this.createAccBtn.click()
+    }
+
+    async userAlreadyExist () {
+        await this.browser.waitForVisible(this.userExistSel, config.waitTime.medium)
+        await this.browser.waitForText(this.userExistSel, config.waitTime.medium)
+        let exist = await this.browser.getText(this.userExistSel)
+        assert(exist == "User already exists.", `the string ${exist} does not match "User already exists." `)
+    }
+
     async checkIfCreate () {
         await this.browser.waitForVisible(this.verifyContainer, config.waitTime.medium)
         await this.browser.waitForText(this.verifyTitleSel, config.waitTime.medium)
-        let totalTitle = await this.browser.getText(this.verifyTitleSel)
-        // assert.strictEqual(totalTitle[0], 'Total accumulated', `the string ${totalTitle[0]} does not mach "Total accumulated" `)
+        let verifyTitle = await this.browser.getText(this.verifyTitleSel)
+        assert(verifyTitle == "Verify account", `the string ${verifyTitle} does not mach "Verify account" `)
     }
 
-    async mailError () {
+    async emailNotValid () {
         await this.browser.waitForVisible(this.emailErrorSel, config.waitTime.medium)
         await this.browser.waitForText(this.emailErrorSel, config.waitTime.medium)
         let error = await this.browser.getText(this.emailErrorSel)
-        // assert.strictEqual(error[0], 'Total acc', `the string ${error[0]} not match`)
+        assert(error == "EMAIL IS NOT VALID", `the string ${error} does not match "EMAIL IS NOT VALID" `)
+    }
+
+    async passwordRequired () {
+        await this.browser.waitForVisible(this.passwordErrorSel, config.waitTime.medium)
+        await this.browser.waitForText(this.passwordErrorSel, config.waitTime.medium)
+        let password = await this.browser.getText(this.passwordErrorSel)
+        assert(password == "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL.,PASSWORDS DON'T MATCH", `the string ${password} does not match "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL.,PASSWORDS DON'T MATCH" `)
     }
 
     async backArrow () {

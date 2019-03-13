@@ -54,9 +54,9 @@ Scenario Outline: Create an account invalid password
         | uvekiso3! |
 
 
-# Scenario: Create an account with email that already used
-# 	When I enter an email that already used
-# 	Then I should get pop-up message "User already exists."
+Scenario: Create an account with email that already used
+	When I enter an email that already used
+	Then I should get pop-up message User already exists.
 
 
 Scenario: Click on arrow button

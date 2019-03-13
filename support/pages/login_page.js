@@ -38,7 +38,6 @@ class LoginPage extends Page {
     await this.browser.waitForVisible(this.mainContainer, config.waitTime.medium)
     await this.browser.waitForText(this.mainContainer, config.waitTime.medium)
   }
-
 }
 
 module.exports = LoginPage

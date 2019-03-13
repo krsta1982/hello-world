@@ -19,6 +19,7 @@ class ResetPassword extends Page {
   get resetTitle () { return '[class="enrg-header"]' }
   get emailSel () { return '[name="email"]' }
   get continueBtnSel () { return '[class="enrg-button enrg-button--primary enrg-button--full enrg-button--large"]' }
+  get resetWrongMail () { return '[class="enrg-error-message__message"]' }
 
     // Elements
   get signInButton () { return this.browser.element(this.signInButtonTWO) }
@@ -41,7 +42,7 @@ class ResetPassword extends Page {
 
   async enterEmail () {
       await this.browser.waitForVisible(this.resetTitle, config.waitTime.medium)
-      await this.emailField.setValue(TestData.getUser('qa_user_4').email)
+      await this.emailField.setValue(TestData.getUser('qa_user_1').email)
       await this.continueButton.click()
   }
 
@@ -49,7 +50,14 @@ class ResetPassword extends Page {
       await this.browser.waitForVisible(this.resetTitle, config.waitTime.medium)
       await this.browser.waitForText(this.resetTitle, config.waitTime.medium)
       let titleReset = await this.browser.getText(this.resetTitle)
-    //   assert.strictEqual(titleReset, 'Total', `the string ${titleReset} does not match "Total" `)
+      assert(titleReset == "Reset password", `the string ${titleReset} does not matcg "Reset password" `)
+  }
+
+  async checkWrongMail () {
+      await this.browser.waitForVisible(this.resetWrongMail, config.waitTime.medium)
+      await this.browser.waitForText(this.resetWrongMail, config.waitTime.medium)
+      let wrongMail = await this.browser.getText(this.resetWrongMail)
+      assert(wrongMail == "User does not exist.", `the string ${wrongMail} does not match "User does not exist." `)
   }
 }
 
