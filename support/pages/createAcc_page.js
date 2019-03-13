@@ -13,6 +13,7 @@ class CreateAccPage extends Page {
     get cityfielSel () { return '[name="city"]' }
     get nicknamefielSel () { return '[name="name"]' }
     get continueButtSel () { return '[type="submit"]' }
+    get userExistSel () { return '[class="enrg-error-message__content"]' } 
     get arrowButtonSel () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
 
     // Other selectors
@@ -78,6 +79,26 @@ class CreateAccPage extends Page {
         await this.nicknameTextField.setValue(this.get_default_nickname())
 
         await this.createAccBtn.click()
+    }
+
+    async createAccountUserExist () {
+        await this.wait_to_open()
+
+        await this.emailTextField.setValue(TestData.getUser('qa_user_3').email)
+        await this.passwordTextField.setValue(TestData.getUser('qa_user_3').password)
+        await this.reapetPasswordTextField.setValue(TestData.getUser('qa_user_3').reapetPassword)
+        await this.selectListCountry.selectByAttribute('value', TestData.getUser('qa_user_3').country)
+        await this.cityTextField.setValue(TestData.getUser('qa_user_3').city)
+        await this.nicknameTextField.setValue(TestData.getUser('qa_user_3').nickname)
+
+        await this.createAccBtn.click()
+    }
+
+    async userAlreadyExist () {
+        await this.browser.waitForVisible(this.userExistSel, config.waitTime.medium)
+        await this.browser.waitForText(this.userExistSel, config.waitTime.medium)
+        let exist = await this.browser.getText(this.userExistSel)
+        assert(exist == "User already exists.", `the string ${exist} does not match "User already exists." `)
     }
 
     async checkIfCreate () {
