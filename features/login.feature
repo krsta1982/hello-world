@@ -24,8 +24,8 @@ Scenario Outline: Login to ECD with various usernames and passwords
     Then I should be logged in ECD
 
     Examples:
-    | username           | password        |
-    | tanenad@gmail.com  | Bloxico2019&&&  | 
-    | tanenad@gmail.com  | Bloxico2019&&&  | 
-    | tanenad@gmail.com  | Bloxico2019&&&  | 
+    | username                  | password  |
+    | produser@prod.production  | Isto123!  | 
+    | produser@prod.production  | Isto123!  | 
+    | produser@prod.production  | Isto123!  | 
     
