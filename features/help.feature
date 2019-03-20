@@ -12,7 +12,7 @@ Feature: Help page
     I need help
     So that I go to help page
 
-Background:
+Background: Catch Hamburger button
     Given I am on dashboard page
     When I click Hamburger button
 
