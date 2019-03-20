@@ -13,7 +13,7 @@ Feature: Help page
     So that I go to help page
 
 Background: Catch Hamburger button
-    Given I am on dashboard page
+    Given I should see Dashboard page
     When I click Hamburger button
 
 Scenario: I need help

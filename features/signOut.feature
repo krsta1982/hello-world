@@ -13,7 +13,7 @@ Feature: Sign out
     So that I go to help page
 
 Background:
-    Given I am on dashboard page
+    Given I should see Dashboard page
     When I click Hamburger button
 
 Scenario: Log out with EC Dashboard

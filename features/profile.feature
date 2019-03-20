@@ -14,7 +14,7 @@ Feature: Profile page
 
 
 Background:
-    Given I am on dashboard page
+    Given I should see Dashboard page
     When I click Hamburger button
 
 
