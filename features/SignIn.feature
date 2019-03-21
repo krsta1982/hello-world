@@ -7,7 +7,6 @@
 #
 
 Feature: Sign In to EnergyCoin Dashboard (ECD)
-
    As the application user
    I want to open and login to the application
 
