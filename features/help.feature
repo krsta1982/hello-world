@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: help.feature
-# DESCRIPTION: help.feature
+# FILE NAME: Help.feature
+# DESCRIPTION: Help.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 19-FEB-19
 # NOTES:

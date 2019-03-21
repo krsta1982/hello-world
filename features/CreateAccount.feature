@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: createAcc.feature
-# DESCRIPTION: createAcc.feature
+# FILE NAME: CreateAccount.feature
+# DESCRIPTION: CreateAccount.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 28-DEC-18
 # NOTES:
