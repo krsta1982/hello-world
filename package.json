@@ -17,5 +17,8 @@
     "logplease": "^1.2.15",
     "selenium-standalone": "^6.15.1",
     "webdriverio": "^4.13.2"
+  },
+  "dependencies": {
+    "request": "^2.88.0"
   }
 }
