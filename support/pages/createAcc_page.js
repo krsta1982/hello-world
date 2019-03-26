@@ -24,6 +24,7 @@ class CreateAccPage extends Page {
     get verifyTitleSel () { return '[class="enrg-header__title"]' }
     get emailErrorSel () { return '[class="enrg-input__message"]' }
     get passwordErrorSel () { return '[class="enrg-input__message"]' }
+    get partnersSel () { return '[class="enrg-link"]' }
 
     // Elements
     get createAccountButton () { return this.browser.element(this.createAccountButtonSel) }
@@ -123,9 +124,16 @@ class CreateAccPage extends Page {
     }
 
     async backArrow () {
-        // await this.browser.waitForVisible(this.arrowButtonSel, config.waitTime.medium)
+        // await this.browser.waitForVisible(this.arrowButtonSel, config.waitTime.medi`um)
         // await this.browser.waitForText(this.arrowButtonSel, config.waitTime.medium)
         await this.arrowButton.click()
+    }
+
+    async findPartners () {
+        await this.browser.waitForVisible(this.partnersSel, config.waitTime.medium)
+        await this.browser.waitForText(this.partnersSel, config.waitTime.medium)
+        let partners = await this.browser.getText(this.partnersSel)
+        assert(partners == "Ring-ring", `the string ${partners} does not match "Ring-ring" `)
     }
 }
 

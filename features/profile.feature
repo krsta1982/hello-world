@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: profile.feature
-# DESCRIPTION: profile.feature
+# FILE NAME: Profile.feature
+# DESCRIPTION: Profile.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 18-FEB-19
 # NOTES:
@@ -13,8 +13,8 @@ Feature: Profile page
     So that I go to profile page
 
 
-Background:
-    Given I am on dashboard page
+Background: Catch Hamburger button
+    Given I should see Dashboard page
     When I click Hamburger button
 
 
