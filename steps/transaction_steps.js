@@ -1,6 +1,6 @@
 
 const { Given, When, Then } = require('cucumber')
-const transactionPage = require('../support/pages/transaction_page')
+const transactionPage = require('../support/pages/Transaction_page')
        
 
        
@@ -11,5 +11,5 @@ When('I click Transaction link', { timeout: 37000 }, async function () {
 })
        
 Then('I should see transaction page', {timeout: 40000}, async function () {
-        // await this.transactionPage.checkTransPage()
+        await this.transactionPage.checkTransPage()
 })

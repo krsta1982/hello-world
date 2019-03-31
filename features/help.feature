@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: help.feature
-# DESCRIPTION: help.feature
+# FILE NAME: Help.feature
+# DESCRIPTION: Help.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 19-FEB-19
 # NOTES:
@@ -12,8 +12,8 @@ Feature: Help page
     I need help
     So that I go to help page
 
-Background:
-    Given I am on dashboard page
+Background: Catch Hamburger button
+    Given I should see Dashboard page
     When I click Hamburger button
 
 Scenario: I need help
