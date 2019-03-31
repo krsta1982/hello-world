@@ -8,7 +8,7 @@ class HelpPage extends BasePage {
     // Selectors
     get helpLinkSel () { return '[id="nav_4"]' }
     get contactTitel () { return '[class="entry-title"]' }
-    get urlBloxico () { return '[http://google.com/]' }
+    get urlBloxico () { return 'bloxico.com/contact' }
 
     // Elements
     get helpLink () { return this.browser.element(this.helpLinkSel) }
@@ -24,9 +24,22 @@ class HelpPage extends BasePage {
         await this.helpLink.click()
     }
 
+    async wiat_to_open_second_window () {
+        let handles;
+
+        do {
+            handles = await this.browser.windowHandles()
+        } while (typeof handles.value[1] === 'undefined'
+                || handles.value[1] === null
+                || "" == await this.browser.window(handles.value[1]).getTitle());
+        return handles;
+    }
+
     async checkHelpPage () {
         // used v4.webdriver.com
-        let windowHandles = await this.browser.windowHandles()
+
+        let windowHandles = await this.wiat_to_open_second_window()
+
         console.log(windowHandles)
         let ecd_win = windowHandles.value[0];
         let blox_win = windowHandles.value[1];
@@ -38,7 +51,7 @@ class HelpPage extends BasePage {
         console.log('blox_url: ' + blox_url);
         // compare if url of the 2nd window blox_win includes 'bloxico.com/contact' string
         // we could also use the title, but is more likely to change 
-        assert(blox_url.includes('bloxico.com/contact'))
+        assert(blox_url.includes(await this.urlBloxico))
     }
 }
 
