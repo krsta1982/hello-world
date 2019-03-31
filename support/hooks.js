@@ -6,7 +6,7 @@ const SignInPage = require('./pages/SignIn_page')
 const CreateAccPage = require('./pages/CreateAccount')
 const TransactionPage = require('./pages/Transaction_page')
 const ProfilePage = require('./pages/Profile_page')
-const HelpPage = require('./pages/Help_page')
+const HelpPage = require('./pages/help_page')
 const ResetPassword = require('./pages/ResetPassword')
 
 let testData
