@@ -1,6 +1,6 @@
 
 const { Given, When, Then } = require('cucumber')
-const basePage = require('../support/pages/Base_page')
+const basePage = require('../support/pages/base_page')
 
 When('I click on Sign Out link', { timeout: 20000 }, async function () {
         await this.basePage.findSignOut()

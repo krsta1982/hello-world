@@ -1,6 +1,6 @@
 
 const { Given, When, Then } = require('cucumber')
-const transactionPage = require('../support/pages/Transaction_page')
+const transactionPage = require('../support/pages/transaction_page')
        
 
        

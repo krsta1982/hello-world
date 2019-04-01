@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: Profile.feature
-# DESCRIPTION: Profile.feature
+# FILE NAME: profile.feature
+# DESCRIPTION: profile.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 18-FEB-19
 # NOTES:
