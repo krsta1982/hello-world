@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('cucumber')
-const basePage = require('../support/pages/base_page')
-const signInPage = require('../support/pages/SignIn_page')
+const basePage = require('../support/pages/base-page')
+const signInPage = require('../support/pages/sign_in-page')
 
 
 Then('I should see landing page', { timeout: 25000 }, async function () {
