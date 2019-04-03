@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('cucumber')
-const resetPassword = require('../support/pages/reset_password')
+const resetPassword = require('../support/pages/reset_password-page')
 
 When('I enter email that does exist', {timeout: 20000}, async function() {
         await this.resetPassword.reset()

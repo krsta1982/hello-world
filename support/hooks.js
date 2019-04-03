@@ -7,7 +7,7 @@ const CreateAccPage = require('./pages/create_account-page')
 const TransactionPage = require('./pages/transaction-page')
 const ProfilePage = require('./pages/profile-page')
 const HelpPage = require('./pages/help-page')
-const ResetPassword = require('./pages/reset_password')
+const ResetPasswordPage = require('./pages/reset_password-page')
 
 let testData
 
@@ -32,7 +32,7 @@ Before(async function (scenario) {
   this.transactionPage = new TransactionPage(this)
   this.profilePage = new ProfilePage(this)
   this.helpPage = new HelpPage(this)
-  this.resetPassword = new ResetPassword(this)
+  this.resetPassword = new ResetPasswordPage(this)
 
   if (!testData) {
     // init test data

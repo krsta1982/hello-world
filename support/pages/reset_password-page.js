@@ -9,7 +9,7 @@ function sleep(delay) {
     while (new Date().getTime() < start + delay*1000);
 }
 
-class ResetPassword extends Page {
+class ResetPasswordPage extends Page {
     // Selectors
   get signInButtonTWO () { return '[class="enrg-button enrg-button--large enrg-button--wide"]' }
   get mainContainer () { return '[class="enrg-app"]' }
@@ -61,4 +61,4 @@ class ResetPassword extends Page {
   }
 }
 
-module.exports = ResetPassword
+module.exports = ResetPasswordPage
