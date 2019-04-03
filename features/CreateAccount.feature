@@ -18,6 +18,9 @@ Background: Background for Create Account to ECD feature
 Scenario: Create an account
     Then I should see partners
 
+    Scenario: Create an account
+    Then I make an API call
+
 # Next two scenario is comment because is not defined yet
 
 
