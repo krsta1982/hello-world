@@ -1,13 +1,13 @@
 const { BeforeAll, Before, After } = require('cucumber')
 const Logger = require('logplease')
 const TestData = require('../util/test_data')
-const BasePage = require('./pages/Base_page')
-const SignInPage = require('./pages/SignIn_page')
-const CreateAccPage = require('./pages/CreateAccount')
-const TransactionPage = require('./pages/Transaction_page')
-const ProfilePage = require('./pages/Profile_page')
-const HelpPage = require('./pages/help_page')
-const ResetPassword = require('./pages/ResetPassword')
+const BasePage = require('./pages/base-page')
+const SignInPage = require('./pages/sign_in-page')
+const CreateAccPage = require('./pages/create_account-page')
+const TransactionPage = require('./pages/transaction-page')
+const ProfilePage = require('./pages/profile-page')
+const HelpPage = require('./pages/help-page')
+const ResetPasswordPage = require('./pages/reset_password-page')
 
 let testData
 
@@ -32,7 +32,7 @@ Before(async function (scenario) {
   this.transactionPage = new TransactionPage(this)
   this.profilePage = new ProfilePage(this)
   this.helpPage = new HelpPage(this)
-  this.resetPassword = new ResetPassword(this)
+  this.resetPassword = new ResetPasswordPage(this)
 
   if (!testData) {
     // init test data

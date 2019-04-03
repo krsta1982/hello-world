@@ -1,6 +1,6 @@
 
 const { Given, When, Then } = require('cucumber')
-const profilePage = require('../support/pages/Profile_page')
+const profilePage = require('../support/pages/profile-page')
 
 When('I click Profile link', { timeout: 35000}, async function () {
         await this.profilePage.findProfile()

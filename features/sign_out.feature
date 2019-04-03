@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: SignOut.feature
-# DESCRIPTION: SignOut.feature
+# FILE NAME: sign_out.feature
+# DESCRIPTION: sign_out.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 21-FEB-19
 # NOTES:

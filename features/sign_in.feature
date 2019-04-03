@@ -1,6 +1,6 @@
 #
-# FILE NAME: login.feature
-# DESCRIPTION: login.feature
+# FILE NAME: sign_in.feature
+# DESCRIPTION: sign_in.feature
 # AUTHOR: Dimitrije Dragasevic(DD)
 # CREATED: 24-DEC-18
 # NOTES:
