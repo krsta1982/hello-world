@@ -1,12 +1,10 @@
-
 #
-# FILE NAME: CreateAccount.feature
-# DESCRIPTION: CreateAccount.feature
+# FILE NAME: create_account.feature
+# DESCRIPTION: create_account.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 28-DEC-18
 # NOTES:
 #
-
 
 Feature: Create an account
     As a new user
@@ -17,9 +15,8 @@ Background: Background for Create Account to ECD feature
 
 Scenario: Create an account
     Then I should see partners
-
-    Scenario: Create an account
-    Then I make an API call
+    And I make an API call to create "qa-partner-u3@gmail.com" account
+    
 
 # Next two scenario is comment because is not defined yet
 

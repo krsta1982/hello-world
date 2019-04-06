@@ -1,6 +1,6 @@
 #
-# FILE NAME: ResetPassword.feature
-# DESCRIPTION: ResetPassword.feature
+# FILE NAME: reset_password.feature
+# DESCRIPTION: reset_password.feature
 # AUTHOR: Filip Vidakovic(Vidak)
 # CREATED: 28-FEB-19
 # NOTES:

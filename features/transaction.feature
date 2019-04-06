@@ -1,7 +1,7 @@
 
 #
-# FILE NAME: Transaction.feature
-# DESCRIPTION: Transaction.feature
+# FILE NAME: transaction.feature
+# DESCRIPTION: transaction.feature
 # AUTHOR: Filip Vidakovic (Vidak)
 # CREATED: 12-FEB-19
 # NOTES:

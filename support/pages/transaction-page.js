@@ -1,4 +1,4 @@
-const BasePage = require('./Base_page')
+const BasePage = require('./base-page')
 const TestData = require('../../util/test_data')
 const config = require('../../config/config')
 const assert = require('assert')
