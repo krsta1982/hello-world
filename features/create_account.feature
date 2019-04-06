@@ -14,8 +14,8 @@ Background: Background for Create Account to ECD feature
     Given I am on Create Account page of ECD
 
 Scenario: Create an account
-    Then I should see partners
-    And I make an API call to create "qa-partner-u3@gmail.com" account
+    # Then I should see partners
+    When I make an API call to create "qa-partner-u3@gmail.com" account
     
 
 # Next two scenario is comment because is not defined yet

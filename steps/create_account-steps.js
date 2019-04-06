@@ -1,6 +1,6 @@
 
 const {Given, When, Then} = require('cucumber')
-const basePage = require('../support/pages/base_page')
+const basePage = require('../support/pages/base-page')
 const createAccPage = require('../support/pages/create_account-page')
 
 Given('I am on Create Account page of ECD', {timeout: 30000}, async function () { //ToDo: change timeout valie to be a global const
