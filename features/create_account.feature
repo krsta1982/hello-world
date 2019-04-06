@@ -1,4 +1,3 @@
-
 #
 # FILE NAME: create_account.feature
 # DESCRIPTION: create_account.feature
@@ -6,7 +5,6 @@
 # CREATED: 28-DEC-18
 # NOTES:
 #
-
 
 Feature: Create an account
     As a new user
@@ -16,7 +14,9 @@ Background: Background for Create Account to ECD feature
     Given I am on Create Account page of ECD
 
 Scenario: Create an account
-    Then I should see partners
+    # Then I should see partners
+    When I make an API call to create "qa-partner-u3@gmail.com" account
+    
 
 # Next two scenario is comment because is not defined yet
 
