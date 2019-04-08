@@ -44,10 +44,9 @@ class BasePage extends Page {
 
   async api_call (api_uri, items, list_name = "") {
 
-    //var api_url = TestData.data.api_url //take it from yaml file
-    let api_url = 'http://18.184.156.139:8089/'
-    var api_user = 'qa-partner'                  //take it from yaml file
-    var api_pass = 'djlxb2vz1hnvhl46'            //take it from yaml file
+    let api_url = TestData.data.api_url
+    let api_user = TestData.data.api_user            
+    let api_pass = TestData.data.api_pass
     let res;
     let a_str;
     let count;
@@ -55,22 +54,22 @@ class BasePage extends Page {
     // test if a call has a list
     if ("" != list_name) {
         // A call with a list        
-        a_str = '{"' + list_name + '" : [{'
+        a_str = '{"' + list_name + '": [{'
         // a_str = '{"" : [{'
         count = items[0].length
         for(let i=0; i < count-1; i++) {
-            a_str += '"'+items[0][i]+'" : "'+items[1][i]+'",'
+            a_str += ' "'+items[0][i]+'": "'+items[1][i]+'",'
         }
-        a_str += '"'+items[0][count-1]+'" : "'+items[1][count-1]+'" }]}'
+        a_str += ' "'+items[0][count-1]+'": "'+items[1][count-1]+'" }]}'
     }
     else {
         // A call without a list
         a_str = '{'
         count = items[0].length
         for(let i=0; i < count-1; i++) {
-            a_str += '"'+items[i]+'" : "'+items[1][i]+'",'
+            a_str += ' "'+items[0][i]+'": "'+items[1][i]+'",'
         }
-        a_str += '"'+items[0][count-1]+'" : "'+items[1][count-1]+'" }'
+        a_str += ' "'+items[0][count-1]+'": "'+items[1][count-1]+'" }'
     }
 
     console.log(a_str);
@@ -94,7 +93,7 @@ class BasePage extends Page {
     
     // console.log(res); 
     var json = JSON.parse(res);
-    console.log("Access Token: ", json.access_token);
+    console.log("API Access Token: ", json.access_token);
 
     try {
         res = await request({
