@@ -12,5 +12,5 @@ Then('I should see partners', { timeout: 20000 }, async function () {
 })
 
 Then('I make an API call to create {string} account', { timeout: 20000 }, async function (account) {
-        await this.basePage.api_call('api/user/connectExternal', [["email"],[]])
+        await this.basePage.api_call('api/user/connectExternal', [["email"],[account]])
 })
