@@ -135,6 +135,17 @@ class CreateAccPage extends Page {
         let partners = await this.browser.getText(this.partnersSel)
         assert(partners == "Ring-ring", `the string ${partners} does not match "Ring-ring" `)
     }
+
+    async get_access_token (account) {
+        let res_body = await super.connect_external_user_api_call(account)
+        console.log("accessToken: "+res_body["accessToken"])
+        return res_body["accessToken"]
+    }
+
+    async open_token_ecd_url(access_token) {
+        await this.browser.url(`${TestData.getBaseUrl()}?token=${access_token}`)        
+    }
+    
 }
 
 module.exports = CreateAccPage
