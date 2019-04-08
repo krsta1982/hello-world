@@ -12,21 +12,39 @@ Feature: Create an account
 
 Background: Background for Create Account to ECD feature
     Given I am on Create Account page of ECD
+    When I make an API call to create "qa-partner-u3@gmail.com" account
+    And I should see password dialog on ECD
 
 Scenario: Create an account
     # Then I should see partners
-    When I make an API call to create "qa-partner-u3@gmail.com" account
-    
+    And I enter valid "<password>" password and reapet password in password field
+    Then I should see Dashboard page
 
-# Next two scenario is comment because is not defined yet
+    Examples:
+    |   password  |
+    |  Qatest123! |
+    |  QApass12!! |
+    |  Isto123!   |
+
+Scenario: Create an account with invalid password with 8+ characters
+    And I enter invalid "<pass>" password and reapet same passwordn in password field
+    Then I should see AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL. under password field
+
+    Examples:
+    |    pass    |
+    | qatest123  |
+    | uvek12345  |
+    | workpls69  |
+
+Scenario: Create an account with invalid password with less then 8 characters
+    And I enter invalid "<Password>" password with less then 8 characters 
+    Then I should see Minimum 8 characters under password field
+
+    Examples:
+    | Password |
+    |  Isto1!  |
+    |  qaTe2!  |
+    |  WOrk4.  |
+    |  Ist123! |
 
 
-# Scenario: Choose partner
-#     When I click on QA Partner
-#     Then I should be redirect to another URL
-
-# Scenario: Register to partner site and after that redirect to ECD and set password
-#     When I recive a request from partner to register me as ECD user via API
-#     And I should see password form on ECD
-#     And I enter password and reapet password in password field
-#     Then I should see Dashboard page
