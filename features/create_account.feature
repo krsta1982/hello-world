@@ -37,7 +37,7 @@ Scenario: Create an account with invalid password with 8+ characters
     | workpls69  |
 
 Scenario: Create an account with invalid password with less then 8 characters
-    And I enter invalid password with less then 8 characters 
+    And I enter invalid "<Password>" password with less then 8 characters 
     Then I should see Minimum 8 characters under password field
 
     Examples:
