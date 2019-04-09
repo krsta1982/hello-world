@@ -12,39 +12,43 @@ Feature: Create an account
 
 Background: Background for Create Account to ECD feature
     Given I am on Create Account page of ECD
-    When I make an API call to create "qa-partner-u3@gmail.com" account
-    And I should see password dialog on ECD
 
-Scenario: Create an account
+
+Scenario Outline: Create an account
     # Then I should see partners
+    When I make an API call to create "<email>" account
+    And I should see password dialog on ECD
     And I enter valid "<password>" password and reapet password in password field
-    Then I should see Dashboard page
+    Then I should see Dash page
 
     Examples:
-    |   password  |
-    |  Qatest123! |
-    |  QApass12!! |
-    |  Isto123!   |
+    |   password  |         email          |
+    |  Qatest123! | qaTesTing60@gmail.com  |
+    |  QApass12!! | qaTesTing61@gmail.com  |
+    |  Isto123!   | qaTesTing62@gmail.com  |
 
-Scenario: Create an account with invalid password with 8+ characters
+Scenario Outline: Create an account with invalid password with 8+ characters
+    When I make an API call to create "<email>" account
+    And I should see pass dialog on ECD
     And I enter invalid "<pass>" password and reapet same passwordn in password field
     Then I should see AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL. under password field
 
     Examples:
-    |    pass    |
-    | qatest123  |
-    | uvek12345  |
-    | workpls69  |
+    |    pass    |         email         |
+    | qatest123  | qaTesTing63@gmail.com |
+    | uvek12345  | qaTesTing64@gmail.com |
+    | workpls69  | qaTesTing65@gmail.com |
 
-Scenario: Create an account with invalid password with less then 8 characters
+Scenario Outline: Create an account with invalid password with less then 8 characters
+    When I make an API call to create "<email>" account
+    And I should see Password dialog on ECD
     And I enter invalid "<Password>" password with less then 8 characters 
     Then I should see Minimum 8 characters under password field
 
     Examples:
-    | Password |
-    |  Isto1!  |
-    |  qaTe2!  |
-    |  WOrk4.  |
-    |  Ist123! |
+    | Password |         email         |
+    |  Isto1!  | qaTesTing66@gmail.com |
+    |  qaTe2!  | qaTesTing67@gmail.com |
+    |  WOrk4.  | qaTesTing68@gmail.com |
 
 
