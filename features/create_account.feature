@@ -22,9 +22,9 @@ Scenario Outline: Create an account
 
     Examples:
     | email                 | password   |
-    | qaTesTing60@gmail.com | Qatest123! |   
-    | qaTesTing61@gmail.com | QApass12!! |  
-    | qaTesTing62@gmail.com | Isto123!   |  
+    | qaTesTing70@gmail.com | Qatest123! |   
+    | qaTesTing71@gmail.com | QApass12!! |  
+    | qaTesTing72@gmail.com | Isto123!   |  
 
 
 Scenario Outline: Create an account with invalid password with 8+ characters
@@ -51,3 +51,18 @@ Scenario Outline: Create an account with invalid password with less then 8 chara
     | qaTesTing66@gmail.com | Isto1!   |   
     | qaTesTing67@gmail.com | qaTe2!   |  
     | qaTesTing68@gmail.com | WOrk4.   |
+
+
+Scenario Outline: Create an account with different password and reapet password
+    When I make an API call to create "<email>" account
+    And I should see password dialog on ECD
+    And I enter a "<password>" in password and "<reapetPassword>" confirm password fields
+    Then I should see PASSWORDS DONT MATCH under password field
+
+    Examples:
+    | email                 | password | reapetPassword |
+    | qaTesTing66@gmail.com | Isto123! | Isto123.       | 
+    | qaTesTing67@gmail.com | qaTest2! | Kakoo34!       |  
+    | qaTesTing68@gmail.com | Testi35! | QateS34!       |
+
+

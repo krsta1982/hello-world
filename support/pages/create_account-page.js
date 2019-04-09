@@ -186,10 +186,17 @@ class CreateAccPage extends Page {
     }
 
     async short_password () {
-        await this.browser.waitForVisible(this.wrongPasswordSel,config.waitTime.long)
-        await this.browser.waitForText(this.wrongPasswordSel,config.waitTime.long)
+        await this.browser.waitForVisible(this.wrongPasswordSel, config.waitTime.long)
+        await this.browser.waitForText(this.wrongPasswordSel, config.waitTime.long)
         let wrongPass = await this.browser.getText(this.wrongPasswordSel)
         assert(wrongPass = "MINIMUM 8 CHARACTERS", `string ${wrongPass} doesn't match with "MINIMUM 8 CHARACTERS" `)
+    }
+
+    async password_not_match () {
+        await this.browser.waitForVisible(this.wrongPasswordSel, config.waitTime.long)
+        await this.browser.waitForText(this.wrongPasswordSel, config.waitTime.long)
+        let notMatch = await this.browser.getText(this.wrongPasswordSel)
+        assert(notMatch = "PASSWORDS DON'T MATCH", `string ${notMatch} doesn't match with "PASSWORDS DON'T MATCH" `)
     }
     
 }
