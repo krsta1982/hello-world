@@ -25,6 +25,12 @@ class CreateAccPage extends Page {
     get emailErrorSel () { return '[class="enrg-input__message"]' }
     get passwordErrorSel () { return '[class="enrg-input__message"]' }
     get partnersSel () { return '[class="enrg-link"]' }
+    get findDialog () { return '[class="enrg-dashboard__modal--title"]' }
+    get passwordDialogSel () { return '[name="password"]' }
+    get reapetPasswordDialogSel () { return '[name="matchPassword"]' }
+    get contButtonSell () { return '[class="enrg-button enrg-button--primary enrg-button--full enrg-button--large"]' }
+    get dashboardTitelSel () { return '[class="enrg-header__title"]' }
+    get wrongPasswordSel () { return '[class="enrg-input__message"]' }
 
     // Elements
     get createAccountButton () { return this.browser.element(this.createAccountButtonSel) }
@@ -36,6 +42,9 @@ class CreateAccPage extends Page {
     get nicknameTextField () { return this.browser.element(this.nicknamefielSel) }
     get createAccBtn () { return this.browser.element(this.continueButtSel) }
     get arrowButton () { return this.browser.element(this.arrowButtonSel)}
+    get passwordField () { return this.browser.element(this.passwordDialogSel)}
+    get reapetPasswordField () { return this.browser.element(this.reapetPasswordDialogSel) }
+    get continueButton () { return this.browser.element(this.contButtonSell) }
 
     // Methods
     async navigateToCreateAccount () {
@@ -144,6 +153,43 @@ class CreateAccPage extends Page {
 
     async open_token_ecd_url(access_token) {
         await this.browser.url(`${TestData.getBaseUrl()}?token=${access_token}`)        
+    }
+
+    async find_password_dialog () {
+        await this.browser.waitForVisible(this.findDialog, config.waitTime.medium)
+        await this.browser.waitForText(this.findDialog, config.waitTime.medium)
+        let passwordDialog = await this.browser.getText(this.findDialog)
+        assert(passwordDialog = "Set your password", `the string ${passwordDialog} does not match "Set your password" `)
+    }
+
+    async enter_Password (password) {
+        await this.passwordField.setValue(password)
+        await this.reapetPasswordField.setValue(password)
+    }
+
+    async continue_button () {
+        await this.continueButton.click()
+    }
+
+    async dashboard_titel () {
+        await this.browser.waitForVisible(this.dashboardTitelSel, config.waitTime.long)
+        await this.browser.waitForText(this.dashboardTitelSel, config.waitTime.long)
+        let dash = await this.browser.getText(this.dashboardTitelSel)
+        assert(dash = "Dashboard", `the string ${dash} does not match "Dashboard" `)
+    }
+
+    async wrong_password () {
+        await this.browser.waitForVisible(this.wrongPasswordSel,config.waitTime.long)
+        await this.browser.waitForText(this.wrongPasswordSel,config.waitTime.long)
+        let wrongPass = await this.browser.getText(this.wrongPasswordSel)
+        assert(wrongPass = "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL.", `string ${wrongPass} doesn't match with "AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL." `)
+    }
+
+    async short_password () {
+        await this.browser.waitForVisible(this.wrongPasswordSel,config.waitTime.long)
+        await this.browser.waitForText(this.wrongPasswordSel,config.waitTime.long)
+        let wrongPass = await this.browser.getText(this.wrongPasswordSel)
+        assert(wrongPass = "MINIMUM 8 CHARACTERS", `string ${wrongPass} doesn't match with "MINIMUM 8 CHARACTERS" `)
     }
     
 }
