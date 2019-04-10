@@ -7,3 +7,6 @@
 ###
 
 url: 'http://stage.enrg.bloxico.com/auth'
+api_url: 'http://18.196.163.60:8089/'
+api_user: 'ring-ring'                     #TODO: make qa-user like for dev enviroment(back-end make this)
+api_pass: 'v3AufUnMtq8zPdmB'
