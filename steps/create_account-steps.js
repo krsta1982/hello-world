@@ -20,6 +20,12 @@ When('I enter a {string} in password and confirm password fields', { timeout: 20
         await this.createAccPage.continue_button()
 })
 
+When('I enter a {string} in password and {string} confirm password fields', { timeout: 20000 }, async function (password, reapetPassword) {
+        await this.createAccPage.passwordField.setValue(password)
+        await this.createAccPage.reapetPasswordField.setValue(reapetPassword)
+        await this.createAccPage.continue_button()
+})
+
 Then('I should see Dash page', { timeout: 20000 }, async function () {
         await this.createAccPage.dashboard_titel()
 })
@@ -28,7 +34,10 @@ Then('I should see AT LEAST 1 UPPERCASE, LOWERCASE, DIGIT AND SYMBOL. under pass
         await this.createAccPage.wrong_password()
 })
 
-
 Then('I should see Minimum 8 characters under password field', { timeout: 20000 }, async function () {
         await this.createAccPage.short_password()
+})
+
+Then('I should see PASSWORDS DONT MATCH under password field', { timeout: 20000 }, async function () {
+        await this.createAccPage.password_not_match()
 })
