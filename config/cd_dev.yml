@@ -7,6 +7,6 @@
 ###
 
 url: 'http://dev.enrg.bloxico.com/auth'
-api_url: 'http://18.184.156.139:8089/'
+api_url: 'http://35.158.47.135:8089/'
 api_user: 'qa-partner'
 api_pass: 'djlxb2vz1hnvhl46'  
