@@ -23,6 +23,7 @@ How to Run:
 
 Hint:
  - before starting tests, you must go to td yaml file and change email for qa_user_1, because when create new account must be with new email adress
+ - before starting tests, you must go to create_account.feature file and change email adress for first table; table for scenario "Create an account"
 
 For debugging edit the launch.json file; for instance to run help.feature od DEV and Firefox
 ```{
