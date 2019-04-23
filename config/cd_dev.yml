@@ -6,7 +6,7 @@
 #
 ###
 
-url: 'http://dev.enrg.bloxico.com/auth'
-api_url: 'http://dev-api.enrg.bloxico.com/'
+url: 'https://dev.enrg.bloxico.com/auth'
+api_url: 'https://dev-api.enrg.bloxico.com/'
 api_user: 'qa-partner'
 api_pass: 'djlxb2vz1hnvhl46'  
