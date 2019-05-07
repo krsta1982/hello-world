@@ -7,7 +7,12 @@ function CustomWorld ({ attach, parameters }) {
 
   const options = {
     desiredCapabilities: {
-      browserName: parameters.browser
+      browserName: 'chrome',
+      chromeOptions: {
+          args: [
+              'headless'
+          ]
+      }
     }
   }
   this.browser = webdriver.remote(options)
