@@ -52,3 +52,13 @@ For debugging edit the launch.json file; for instance to run help.feature od DEV
         }
     ]
 }
+```
+
+Instruction for run test in Docker:
+
+1. docker build -t 'name' .
+
+2. Open new tab in terminal and get inside of container
+
+3. Run test, example: `./run.sh dev chrome features/help.feature`
+
