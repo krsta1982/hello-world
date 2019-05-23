@@ -10,7 +10,9 @@ function CustomWorld ({ attach, parameters }) {
       browserName: 'chrome',
       chromeOptions: {
           args: [
-              'headless'
+              '--headless',
+              '--no-sandbox',
+              '--disable-gpu'
           ]
       }
     }
