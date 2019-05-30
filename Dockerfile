@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-
 # Install machine dependencies
 RUN apt update \
   && apt install -y unzip curl wget git make build-essential g++ openjdk-8-jdk \
@@ -10,18 +9,12 @@ RUN apt update \
   && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && apt update \
   && apt install -y google-chrome-stable firefox
-
 # Working directory
 RUN mkdir -p /workdir/output
 WORKDIR /workdir
-
 # Install dependencies if any change
 COPY package.json package-lock.json ./
-RUN npm install
-
 # Copy tests
 COPY . ./
-
-# Run selenium
-RUN ./node_modules/.bin/selenium-standalone install
-RUN ./node_modules/.bin/selenium-standalone start
+# Entrypoint script
+ENTRYPOINT ["./entrypoint.sh"]
