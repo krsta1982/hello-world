@@ -21,10 +21,10 @@ Scenario Outline: Create an account
     Then I should see Dash page
 
     Examples:
-    | email                 | password   |
-    | qaTesTing7769@gmail.com | Qatest123! |   
-    | qaTesTing7869@gmail.com | QApass12!! |  
-    | qaTesTing7969@gmail.com | Isto123!   |  
+    | email                   | password   |
+    | qzTesTing7769@gmail.com | Qatest123! |   
+    | qzTesTing7869@gmail.com | QApass12!! |  
+    | qzTesTing7969@gmail.com | Isto123!   |  
 
 
 Scenario Outline: Create an account with invalid password with 8+ characters
