@@ -56,5 +56,5 @@ For debugging edit the launch.json file; for instance to run help.feature od DEV
 
 Instruction for run test in Docker:
 
-     `initiate-container.sh`
+     `./initiate-container.sh`
 
