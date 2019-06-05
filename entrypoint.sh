@@ -2,4 +2,5 @@
 npm install
 ./node_modules/.bin/selenium-standalone install
 ./node_modules/.bin/selenium-standalone start > /dev/null 2>&1 &
+sleep 1
 ./run.sh dev chrome
