@@ -22,9 +22,9 @@ Scenario Outline: Create an account
 
     Examples:
     | email                   | password   |
-    | qzTesTing7769@gmail.com | Qatest123! |   
-    | qzTesTing7869@gmail.com | QApass12!! |  
-    | qzTesTing7969@gmail.com | Isto123!   |  
+    | iiTesTing7769@gmail.com | Qatest123! |   
+    | iiTesTing7869@gmail.com | QApass12!! |  
+    | iiTesTing7969@gmail.com | Isto123!   |  
 
 
 Scenario Outline: Create an account with invalid password with 8+ characters
