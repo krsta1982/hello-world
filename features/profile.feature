@@ -6,7 +6,7 @@
 # CREATED: 18-FEB-19
 # NOTES:
 #
-
+@all_env
 Feature: Profile page
     As a user of EC Dashboard
     I want to see my profile

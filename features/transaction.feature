@@ -6,7 +6,7 @@
 # CREATED: 12-FEB-19
 # NOTES:
 #
-
+@all_env
 Feature: Open transaction page
     As a user of EC Dashboard
     I want to see my transaction
