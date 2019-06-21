@@ -5,7 +5,7 @@
 # CREATED: 28-DEC-18
 # NOTES:
 #
-
+@dev_env
 Feature: Create an account
     As a new user
     I want to create an account

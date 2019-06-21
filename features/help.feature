@@ -6,7 +6,7 @@
 # CREATED: 19-FEB-19
 # NOTES:
 #
-
+@all_env @prod_env
 Feature: Help page
     As a user of EC Dashboard
     I need help

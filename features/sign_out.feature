@@ -6,7 +6,7 @@
 # CREATED: 21-FEB-19
 # NOTES:
 #
-
+@all_env
 Feature: Sign out
    As a user of ECD
    I want to loged out

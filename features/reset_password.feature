@@ -5,7 +5,7 @@
 # CREATED: 28-FEB-19
 # NOTES:
 #
-
+@all_env
 Feature: Reset password
      I forgot password
      I want to reset password
