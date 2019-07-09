@@ -12,7 +12,10 @@ Feature: Create an account
 
 Background: Background for Create Account to ECD feature
     Given I am on Create Account page of ECD
-
+@all_env
+Scenario: Gog Platform
+    When I click GOG Platform
+    Then I should see GOG website
 
 Scenario Outline: Create an account
     When I make an API call to create "<email>" account
