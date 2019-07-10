@@ -6,6 +6,10 @@ Given('I am on Create Account page of ECD', { timeout: 20000 }, async function (
         await this.createAccPage.navigateToCreateAccount()
 })
 
+When('I click GOG Platform', { timeout: 20000 }, async function () {
+        await this.createAccPage.gog_platform()
+})
+
 When('I make an API call to create {string} account', { timeout: 20000 }, async function (email) {
         let access_token = await this.createAccPage.get_access_token(email)
         await this.createAccPage.open_token_ecd_url(access_token)
@@ -40,4 +44,8 @@ Then('I should see Minimum 8 characters under password field', { timeout: 20000 
 
 Then('I should see PASSWORDS DONT MATCH under password field', { timeout: 20000 }, async function () {
         await this.createAccPage.password_not_match()
+})
+
+Then('I should see GOG website', { timeout: 20000}, async function () {
+        await this.createAccPage.checkGOGurl()
 })

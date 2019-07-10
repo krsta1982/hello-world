@@ -15,6 +15,7 @@ class CreateAccPage extends Page {
     get continueButtSel () { return '[type="submit"]' }
     get userExistSel () { return '[class="enrg-error-message__content"]' } 
     get arrowButtonSel () { return '[class="enrg-button enrg-button--ghost enrg-button--large enrg-header__action"]' }
+    get gogButtonSel () { return '[class="enrg-link enrg-register__link"]' }
 
     // Other selectors
     get createAccountButtonSel () { return '[class="enrg-button enrg-button--large enrg-button--wide enrg-button--primary"]' }
@@ -45,6 +46,10 @@ class CreateAccPage extends Page {
     get passwordField () { return this.browser.element(this.passwordDialogSel)}
     get reapetPasswordField () { return this.browser.element(this.reapetPasswordDialogSel) }
     get continueButton () { return this.browser.element(this.contButtonSell) }
+    get gogButton () { return this.browser.element(this.gogButtonSel) }
+
+    get gogTitel () { return '[class="entry-title"]' }
+    get urlGOG () { return 'gog.bloxico.com' }
 
     // Methods
     async navigateToCreateAccount () {
@@ -198,7 +203,37 @@ class CreateAccPage extends Page {
         let notMatch = await this.browser.getText(this.wrongPasswordSel)
         assert(notMatch = "PASSWORDS DON'T MATCH", `string ${notMatch} doesn't match with "PASSWORDS DON'T MATCH" `)
     }
-    
+
+    async gog_platform () {
+        await this.gogButton.click()
+    }
+
+    async wiat_to_open_second_tab () {
+        let handles;
+
+        do {
+            handles = await this.browser.windowHandles()
+        } while (typeof handles.value[1] === 'undefined'
+                || handles.value[1] === null
+                || "" == await this.browser.window(handles.value[1]).getTitle());
+        return handles;
+    }
+
+    async checkGOGurl () {
+        let windowHandles = await this.wiat_to_open_second_tab()
+
+        console.log(windowHandles)
+        let ecd_win = windowHandles.value[0];
+        let gog_win = windowHandles.value[1];
+        let ecd_title = await this.browser.window(ecd_win).getTitle();
+        console.log('ecd_title: ' + ecd_title); 
+        let gog_title = await this.browser.window(gog_win).getTitle();
+        let gog_url = await this.browser.window(gog_win).getUrl();
+        console.log('gog_title: ' + gog_title); 
+        console.log('gog_url: ' + gog_url);
+        
+        assert(gog_url.includes(await this.urlGOG))
+    }
 }
 
 module.exports = CreateAccPage
