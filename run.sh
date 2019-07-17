@@ -1,7 +1,7 @@
 # Convenience bash script for running Cucumber tests.
 #
 # Parameters:
-# $3 environment (stage, prod) (default: stage)
+# $1 environment (stage, prod) (default: stage)
 # $2 browser (chrome, firefox) (default: chrome)
 # $3 and after are standard Cucumberjs parameters
 #
