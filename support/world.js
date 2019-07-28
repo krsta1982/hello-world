@@ -7,16 +7,18 @@ function CustomWorld ({ attach, parameters }) {
 
   const options = {
     desiredCapabilities: {
-      browserName: 'chrome',
-      chromeOptions: {
-          args: [
-              '--headless',
-              '--no-sandbox',
-              '--disable-gpu'
-          ]
-      }
+      browserName: parameters.browser
     }
-  }
+      //browserName: 'chrome',
+      //chromeOptions: {
+      //    args: [
+      //        '--headless',
+      //       '--no-sandbox',
+      //        '--disable-gpu'
+      //    ]
+     // }
+    }
+  //}
   this.browser = webdriver.remote(options)
 }
 
