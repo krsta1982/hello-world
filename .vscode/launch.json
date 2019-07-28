@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Prod Debug all feature",
+            "type": "node",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+            "args": [
+                "--world-parameters",
+                "{\"environment\": \"prod\", \"browser\": \"chrome\"}",
+                //"features/help.feature"
+                //"features/transaction.feature"
+                //"features/CreateAccount.feature"
+                // "features/profile.feature"
+                // "features/resetPassword.feature"
+                "features/sign_in.feature"
+                // "features/signOut.feature"
+                // "features/transaction.feature"
+                // "${workspaceRoot}/features/**/*.feature",
+                // "-r",
+                // "${workspaceRoot}/steps/**/*",
+                // "--tags",
+                // "@your-tags"
+            ]
+        },
+
+
+        {
+            "name": "Dev Debug all feature",
+            "type": "node",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+            "args": [
+                "--world-parameters",
+                "{\"environment\": \"dev\", \"browser\": \"chrome\"}",
+                // "features/help.feature"
+                "features/create_account.feature"
+                // "features/CreateAccount.feature"
+                // "features/profile.feature"
+                // "features/resetPassword.feature"
+                // "features/SignIn.feature"
+                // "features/signOut.feature"
+                // "features/transaction.feature"
+                // "${workspaceRoot}/features/**/*.feature",
+                // "-r",
+                // "${workspaceRoot}/steps/**/*",
+                // "--tags",
+                // "@your-tags"
+            ]
+        }
+    ]
+}
