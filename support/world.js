@@ -17,7 +17,7 @@ function CustomWorld ({ attach, parameters }) {
       this.browser = webdriver.remote(options)
       break;
     case "chrome-headless":
-      const options = {
+      const optionsH = {
         desiredCapabilities: {
           browserName: 'chrome',
           chromeOptions: {
@@ -29,12 +29,11 @@ function CustomWorld ({ attach, parameters }) {
           }
         }
       }
-      this.browser = webdriver.remote(options)
+      this.browser = webdriver.remote(optionsH)
       break;
     default:
-      console.log('Browser parameter ' + parameters.browser + 'is wrong!')
+      throw new Error('Browser parameter ' + parameters.browser + 'is wrong!')
   }
-
 
 }
 

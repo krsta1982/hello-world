@@ -27,5 +27,5 @@ headless=$3
 headless=${headless:=chromeOptions}  #ChromeOptions sam pokupio iz world.js tu su opisane capabilites za headless (to je ponuda resenja za sad)
 
 ./node_modules/.bin/cucumber-js \
-    --world-parameters "{\"environment\": \"${environment}\", \"browser\": \"${browser}\", \"headless\": \"${headless}\"}" \
+    --world-parameters "{\"environment\": \"${environment}\", \"browser\": \"${browser}\"}" \
     ${@:3}
