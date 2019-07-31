@@ -20,6 +20,10 @@ How to Run:
 1. `./run.sh dev chrome`
 2. `./run.sh stage chrome` 
 3. `./run.sh prod firefox`
+4. `./run.sh prod chrome-headless`
+
+If you want run prod enviroment, you must use tags on this way:
+ - `./run.sh prod chrome --tags "all_env"`
 
 Hint:
  - before starting tests, you must go to td yaml file and change email for qa_user_1, because when create new account must be with new email adress
