@@ -8,7 +8,7 @@ class HelpPage extends BasePage {
     // Selectors
     get helpLinkSel () { return '[id="nav_4"]' }
     get contactTitel () { return '[class="entry-title"]' }
-    get urlBloxico () { return 'bloxico.com/contact' }
+    get urlBloxico () { return 'bloxico.com' }
 
     // Elements
     get helpLink () { return this.browser.element(this.helpLinkSel) }
