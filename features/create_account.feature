@@ -38,7 +38,7 @@ Scenario Outline: Create an account with invalid password with 8+ characters
 
     Examples:
     | email                 | password  |
-    | qaTesTing63@gmail.com | qatest123 |   
+    | krstak@gmail.com      | qatest123 | 
     | qaTesTing64@gmail.com | uvek12345 |  
     | qaTesTing65@gmail.com | workpls69 |
 
