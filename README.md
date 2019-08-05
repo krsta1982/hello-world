@@ -46,7 +46,12 @@ For debugging edit the launch.json file; for instance to run help.feature od DEV
                 "--world-parameters",
                 "{\"environment\": \"dev\", \"browser\": \"firefox\"}",
                 "features/help.feature"
-                // "features/createAcc.feature"
+                // "features/create_account.feature"
+                // "features/profile.feature"
+                // "features/reset_password.feature"
+                // "features/sign_in.feature"
+                // "features/sign_out.feature"
+                // "features/transaction.feature"
                 // "${workspaceRoot}/features/**/*.feature",
                 // "-r",
                 // "${workspaceRoot}/steps/**/*",
@@ -62,4 +67,3 @@ Instruction for run test in Docker:
 
      `./initiate-container.sh`
 
-// test Krsta
